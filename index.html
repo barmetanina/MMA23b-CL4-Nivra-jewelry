@@ -8,8 +8,54 @@
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
 
 </head>
+
 <body>
-    <h1>My awesome page</h1>
-    <script src="/assets/js/script.js"></script>
+<header>
+  <h1>Schmuck Webshop</h1>
+  <p>Nachhaltiger Schmuck: Baum pflanzen oder Koralle züchten</p>
+</header>
+    
+<nav>
+  <a href="#">Home</a>
+  <a href="#">Shop</a>
+  <a href="#">Nachhaltigkeit</a>
+  <a href="#">Kontakt</a>
+</nav>
+
+<div class="container">
+  <h2>Bestellformular</h2>
+    
+  <form id="orderForm">
+      
+    <label>Vorname</label>
+    <input type="text" id="firstname">
+    <div class="error" id="errFirstname"></div>
+
+    <label>Nachname</label>
+    <input type="text" id="lastname">
+    <div class="error" id="errLastname"></div>
+
+    <label>E-Mail Adresse</label>
+    <input type="text" id="email">
+    <div class="error" id="errEmail"></div>
+
+    <label>Nachhaltigkeitsprojekt</label>
+    <select id="project">
+      <option value="">Bitte auswählen</option>
+      <option value="tree">Baum pflanzen</option>
+      <option value="coral">Koralle züchten</option>
+    </select>
+    <div class="error" id="errProject"></div>
+
+    <label>Nachricht</label>
+    <textarea id="message" maxlength="200"></textarea>
+    <div class="error" id="errMessage"></div>
+
+    <button type="submit">Absenden</button>
+  </form>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
