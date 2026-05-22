@@ -110,57 +110,30 @@
       </div>
     </section>
 
-    <!-- FORMS -->
-<div class="container">
-  <h2>Bestellformular</h2>
-    
-  <form id="orderForm">
-      
-    <label>Vorname</label>
-    <input type="text" id="firstname">
-    <div class="error" id="errFirstname"></div>
-
-    <label>Nachname</label>
-    <input type="text" id="lastname">
-    <div class="error" id="errLastname"></div>
-
-    <label>E-Mail Adresse</label>
-    <input type="text" id="email">
-    <div class="error" id="errEmail"></div>
-
-    <label>Nachhaltigkeitsprojekt</label>
-    <select id="project">
-      <option value="">Bitte auswählen</option>
-      <option value="tree">Baum pflanzen</option>
-      <option value="coral">Koralle züchten</option>
-    </select>
-    <div class="error" id="errProject"></div>
-
-    <label>Nachricht</label>
-    <textarea id="message" maxlength="200"></textarea>
-    <div class="error" id="errMessage"></div>
-
-    <button type="submit">Absenden</button>
-  </form>
-</div>
-
     <!--FORMS 2.0-->
     <section class="contact">
       <h2>Get in Touch</h2>
       <p>We’d love to hear from you.</p>
 
-      <form class="contact-form">
-        <label>Name</label>
-        <input type="text" placeholder="Your name" />
+      <form class="contact-form" novalidate>
+  <label>Firstname</label>
+  <input id="firstname" type="text" placeholder="Your firstname" />
+  <small id="errFirstname" class="error"></small>
 
-        <label>Email</label>
-        <input type="email" placeholder="you@email.com" />
+  <label>Lastname</label>
+  <input id="lastname" type="text" placeholder="Your lastname" />
+  <small id="errLastname" class="error"></small>
 
-        <label>Message</label>
-        <textarea placeholder="Type your message..."></textarea>
+  <label>Email</label>
+  <input id="email" type="email" placeholder="you@email.com" />
+  <small id="errEmail" class="error"></small>
 
-        <button class="btn-dark">Submit</button>
-      </form>
+  <label>Message</label>
+  <textarea id="message" placeholder="Type your message..."></textarea>
+  <small id="errMessage" class="error"></small>
+
+  <button class="btn-dark">Submit</button>
+</form>
     </section>
 
 
