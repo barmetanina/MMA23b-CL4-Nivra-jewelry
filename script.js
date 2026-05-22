@@ -48,3 +48,10 @@ document.getElementById("orderForm").addEventListener("submit", function(e) {
     alert("Formular erfolgreich abgesendet!");
   }
 });
+
+const hamburger = document.getElementById("hamburger");
+const nav = document.getElementById("nav");
+
+hamburger.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
