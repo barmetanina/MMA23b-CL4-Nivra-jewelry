@@ -605,3 +605,109 @@ body {
   color: #666;
   margin: 0;
 }
+
+/* =========================
+   SHOP HERO
+========================= */
+
+.shop-hero {
+  padding: 80px 24px 40px;
+  text-align: center;
+  background: #f8f6f2;
+}
+
+.shop-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 44px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.shop-hero p {
+  color: #666;
+  font-size: 16px;
+}
+
+/* =========================
+   FILTER BAR
+========================= */
+
+.shop-filter {
+  padding: 20px 24px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.filter-btn {
+  padding: 10px 18px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: #b38b59;
+  color: white;
+  border-color: #b38b59;
+}
+
+/* =========================
+   PRODUCT GRID (Shop Erweiterung)
+========================= */
+
+.products {
+  padding-top: 40px;
+}
+
+.product-card .price {
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.product-card .desc {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+/* =========================
+   SHOP INFO BOXES
+========================= */
+
+.shop-info {
+  padding: 70px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.info-box {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-4px);
+}
+
+.info-box h3 {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.info-box p {
+  color: #666;
+}
