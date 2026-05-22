@@ -518,3 +518,150 @@ body {
   color: #666;
   font-size: 14px;
 }
+
+/* =========================
+   HERO SMALL (Action / Contact)
+========================= */
+.hero-small {
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #f6f4ef;
+  padding: 40px;
+}
+
+.hero-small h1 {
+  font-size: 3rem;
+  font-family: "Playfair Display", serif;
+}
+
+.hero-small p {
+  font-family: "Poppins", sans-serif;
+  opacity: 0.7;
+}
+
+/* =========================
+   IMPACT SECTION
+========================= */
+.impact {
+  padding: 80px 40px;
+  text-align: center;
+  background: #ffffff;
+}
+
+.impact h2 {
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  font-family: "Playfair Display", serif;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.impact-card {
+  background: #f6f4ef;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.impact-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+}
+
+.impact-number {
+  font-size: 2.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* =========================
+   GAME SECTION
+========================= */
+.game {
+  padding: 80px 40px;
+  text-align: center;
+  background: #ffffff;
+}
+
+.game h2 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  font-family: "Playfair Display", serif;
+}
+
+.game-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.game-area {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  background: #f6f4ef;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-placeholder {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
+  opacity: 0.6;
+  font-family: "Poppins", sans-serif;
+}
+
+.dino-placeholder {
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  font-size: 2rem;
+}
+
+.obstacle-placeholder {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  font-size: 2rem;
+}
+
+.game-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* =========================
+   ACTION INFO SECTION
+========================= */
+.action-info {
+  padding: 60px 40px;
+  text-align: center;
+  background: #f6f4ef;
+}
+
+.action-info h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-family: "Playfair Display", serif;
+}
+
+.action-info p {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  opacity: 0.8;
+}
