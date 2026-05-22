@@ -1,1 +1,117 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nivra – Action</title>
+    <link rel="stylesheet" href="style.css" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">Nivra</div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="action.html">Action</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-small">
+      <div class="hero-content">
+        <h1>Action Hub</h1>
+        <p>Spiele, Impact und Nachhaltigkeit in Echtzeit</p>
+      </div>
+    </section>
+
+    <!-- IMPACT TRACKER -->
+    <section class="impact">
+      <h2>Dein Impact</h2>
+
+      <div class="impact-grid">
+
+        <div class="impact-card">
+          <h3>Baeume gepflanzt</h3>
+          <p class="impact-number" id="treeCount">0</p>
+        </div>
+
+        <div class="impact-card">
+          <h3>Korallen gezuechtet</h3>
+          <p class="impact-number" id="coralCount">0</p>
+        </div>
+
+        <div class="impact-card">
+          <h3>Gesamte Wirkung</h3>
+          <p class="impact-number" id="totalImpact">0</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- DINO GAME -->
+    <section class="game">
+      <h2>Dino Game</h2>
+      <p>Weiche Hindernissen aus und sammle Punkte</p>
+
+      <div class="game-container">
+        <div id="gameArea" class="game-area">
+          <!-- Hier kommt spaeter dein Dino-Spiel rein -->
+          <p class="game-placeholder">Spiel wird hier geladen...</p>
+
+          <div class="dino-placeholder">🦖</div>
+          <div class="obstacle-placeholder">🌵</div>
+        </div>
+
+        <div class="game-info">
+          <p>Punkte: <span id="score">0</span></p>
+          <button class="btn-dark" id="startGame">Spiel starten</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFO SECTION -->
+    <section class="action-info">
+      <h2>Wie dein Kauf wirkt</h2>
+      <p>
+        Jeder Einkauf traegt aktiv zur Wiederherstellung der Natur bei.
+        Mit jedem Schmuckstueck werden entweder Baeume gepflanzt oder Korallenriffe aufgebaut.
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#">Our Story</a>
+        <a href="#">Sustainability</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Impressum</h4>
+        <a href="#">Legal Notice</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Impact</h4>
+        <p>Transparenz in Echtzeit</p>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Nivra. All rights reserved.</p>
+      </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
