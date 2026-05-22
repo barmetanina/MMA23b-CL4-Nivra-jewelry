@@ -520,148 +520,88 @@ body {
 }
 
 /* =========================
-   HERO SMALL (Action / Contact)
+   CONTACT PAGE EXTRA STYLES
 ========================= */
-.hero-small {
-  height: 40vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: #f6f4ef;
-  padding: 40px;
-}
 
-.hero-small h1 {
-  font-size: 3rem;
-  font-family: "Playfair Display", serif;
-}
-
-.hero-small p {
-  font-family: "Poppins", sans-serif;
-  opacity: 0.7;
-}
-
-/* =========================
-   IMPACT SECTION
-========================= */
-.impact {
-  padding: 80px 40px;
-  text-align: center;
-  background: #ffffff;
-}
-
-.impact h2 {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  font-family: "Playfair Display", serif;
-}
-
-.impact-grid {
+/* Contact Info Cards */
+.contact-info {
+  padding: 60px 24px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
+  text-align: center;
 }
 
-.impact-card {
-  background: #f6f4ef;
+.info-card {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+}
+
+.info-card h3 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.info-card p {
+  color: #666;
+}
+
+/* Contact Section Anpassung (Feinschliff) */
+.contact {
+  background: #f8f6f2;
+}
+
+.contact-form {
+  background: white;
   padding: 30px;
-  border-radius: 12px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 
-.impact-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+/* FAQ Section */
+.faq {
+  padding: 70px 24px;
+  background: white;
+  text-align: center;
+}
+
+.faq h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+.faq-item {
+  max-width: 700px;
+  margin: 0 auto 18px;
+  background: #f8f6f2;
+  padding: 18px 22px;
+  border-radius: 14px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+  transform: translateY(-3px);
+}
+
+.faq-item h4 {
+  margin-bottom: 6px;
   font-family: "Poppins", sans-serif;
-}
-
-.impact-number {
-  font-size: 2.5rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  color: #111;
 }
 
-/* =========================
-   GAME SECTION
-========================= */
-.game {
-  padding: 80px 40px;
-  text-align: center;
-  background: #ffffff;
-}
-
-.game h2 {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-  font-family: "Playfair Display", serif;
-}
-
-.game-container {
-  margin-top: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.game-area {
-  width: 100%;
-  max-width: 600px;
-  height: 300px;
-  background: #f6f4ef;
-  border-radius: 12px;
-  position: relative;
-  overflow: hidden;
-}
-
-.game-placeholder {
-  position: absolute;
-  top: 40%;
-  width: 100%;
-  text-align: center;
-  opacity: 0.6;
-  font-family: "Poppins", sans-serif;
-}
-
-.dino-placeholder {
-  position: absolute;
-  bottom: 20px;
-  left: 40px;
-  font-size: 2rem;
-}
-
-.obstacle-placeholder {
-  position: absolute;
-  bottom: 20px;
-  right: 40px;
-  font-size: 2rem;
-}
-
-.game-info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-family: "Poppins", sans-serif;
-}
-
-/* =========================
-   ACTION INFO SECTION
-========================= */
-.action-info {
-  padding: 60px 40px;
-  text-align: center;
-  background: #f6f4ef;
-}
-
-.action-info h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  font-family: "Playfair Display", serif;
-}
-
-.action-info p {
-  max-width: 600px;
-  margin: 0 auto;
-  font-family: "Poppins", sans-serif;
-  opacity: 0.8;
+.faq-item p {
+  color: #666;
+  margin: 0;
 }
