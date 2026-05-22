@@ -381,3 +381,139 @@ body {
     transform: none;
   }
 }
+
+/* =========================
+   SHOP HERO
+========================= */
+.shop-hero {
+  height: 260px;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    #8a8a8a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.shop-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 44px;
+  margin-bottom: 10px;
+}
+
+.shop-hero p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+
+/* =========================
+   FILTER BAR
+========================= */
+.shop-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 30px 20px 10px;
+}
+
+.filter-btn {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: #b38b59;
+  color: white;
+  border-color: #b38b59;
+}
+
+
+/* =========================
+   PRODUCT ENHANCEMENTS
+========================= */
+.price {
+  font-weight: 600;
+  color: #111;
+  margin-top: 4px;
+}
+
+.desc {
+  font-size: 13px;
+  color: #777;
+  margin-top: 4px;
+}
+
+
+/* =========================
+   SHOP INFO SECTION
+========================= */
+.shop-info {
+  padding: 70px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.info-box {
+  background: white;
+  padding: 26px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-4px);
+}
+
+.info-box h3 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 10px;
+}
+
+.info-box p {
+  color: #666;
+  font-size: 14px;
+}
+
+
+/* =========================
+   ACTIVE NAV STYLE
+========================= */
+.nav a.active {
+  color: #b38b59;
+  font-weight: 600;
+}
+
+
+/* =========================
+   SMALL MOBILE FIXES
+========================= */
+@media (max-width: 600px) {
+  .shop-hero h1 {
+    font-size: 32px;
+  }
+
+  .shop-filter {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+}
