@@ -1,51 +1,47 @@
-document.getElementById("orderForm").addEventListener("submit", function(e) {
+const form = document.querySelector(".contact-form");
+
+form.addEventListener("submit", function (e) {
   e.preventDefault();
 
   let valid = true;
 
-  // Errors reset
+  // Fehler zurücksetzen
   document.querySelectorAll(".error").forEach(el => el.innerText = "");
 
+  // Werte holen
   const firstname = document.getElementById("firstname").value.trim();
   const lastname = document.getElementById("lastname").value.trim();
   const email = document.getElementById("email").value.trim();
-  const project = document.getElementById("project").value;
   const message = document.getElementById("message").value.trim();
 
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   // Vorname
-  if (firstname.length < 2 || /\d/.test(firstname)) {
-    document.getElementById("errFirstname").innerText = "Ungültiger Vorname";
+  if (firstname === "" || firstname.length > 20 || !/^[A-Za-z]+$/.test(firstname)) {
+    document.getElementById("errFirstname").innerText = "Invalid firstname";
     valid = false;
   }
 
   // Nachname
-  if (lastname.length < 2 || /\d/.test(lastname)) {
-    document.getElementById("errLastname").innerText = "Ungültiger Nachname";
+  if (lastname === "" || lastname.length > 20 || !/^[A-Za-z]+$/.test(lastname)) {
+    document.getElementById("errLastname").innerText = "Invalid lastname";
     valid = false;
   }
 
   // Email
-  if (!emailPattern.test(email)) {
-    document.getElementById("errEmail").innerText = "Ungültige E-Mail";
-    valid = false;
-  }
-
-  // Projekt
-  if (project === "") {
-    document.getElementById("errProject").innerText = "Bitte Projekt auswählen";
+  if (email === "" || email.length > 20 || !email.includes("@")) {
+    document.getElementById("errEmail").innerText = "Invalid Email";
     valid = false;
   }
 
   // Nachricht
-  if (message.length > 200) {
-    document.getElementById("errMessage").innerText = "Maximal 200 Zeichen erlaubt";
+  if (message === "" || message.length > 200) {
+    document.getElementById("errMessage").innerText = "Your message should be no longer than 200 characters. ";
     valid = false;
   }
 
+  // Formular wurde versendet -> Nachricht
   if (valid) {
-    alert("Formular erfolgreich abgesendet!");
+    alert("Thank you for contacting us!");
+    form.submit();
   }
 });
 
