@@ -145,7 +145,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   startBtn.addEventListener("click", startGame);
   gameArea.addEventListener("click", jump);
-  document.addEventListener("keydown", jump);
+document.addEventListener("keydown", (e) => {
+  if (e.code === "Space") {
+    e.preventDefault();
+    jump(e);
+  }
+});
 
   function startGame() {
     if (gameRunning) return;
