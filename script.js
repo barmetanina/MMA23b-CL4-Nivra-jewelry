@@ -226,7 +226,7 @@ function jump(e) {
     const obs = document.createElement("div");
     obs.classList.add("obstacle");
 
-    const items = ["🪸", "🌵", "🧴"];
+    const items = ["🪸", "🌳", "🌴"];
     obs.textContent = items[Math.floor(Math.random() * items.length)];
 
     obs.style.left = "800px";
