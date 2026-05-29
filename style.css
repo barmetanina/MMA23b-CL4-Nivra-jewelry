@@ -915,3 +915,34 @@ body {
   bottom: 20px;
   font-size: 28px;
 }
+
+
+.thankyou-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f6f2;
+  padding: 20px;
+}
+
+.thankyou-box {
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.thankyou-box h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  margin-bottom: 15px;
+  color: #111;
+}
+
+.thankyou-box p {
+  color: #666;
+  margin-bottom: 30px;
+}
