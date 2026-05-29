@@ -139,25 +139,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     dino = document.createElement("div");
     dino.classList.add("dino");
-    dino.textContent = "🦖💎";
+    dino.textContent = "💎";
     gameArea.appendChild(dino);
 
     gameInterval = setInterval(updateGame, 20);
     spawnInterval = setInterval(spawnObstacle, 1400);
   }
 
-  function resetGame() {
-    gameArea.innerHTML = `<p class="game-placeholder">Spiel läuft...</p>`;
+function resetGame() {
+  gameArea.innerHTML = "";
 
-    obstacles = [];
-    score = 0;
-    speed = 6;
-    velocityY = 0;
-    dinoY = 0;
-    isJumping = false;
+  obstacles = [];
+  score = 0;
+  speed = 6;
+  velocityY = 0;
+  dinoY = 0;
+  isJumping = false;
 
-    scoreEl.textContent = "0";
-  }
+  scoreEl.textContent = "0";
+}
 
   // JUMP
   function jump(e) {
@@ -214,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // OBSTACLES
   function spawnObstacle() {
     if (!gameRunning) return;
+    gameRunning = false;
 
     const obs = document.createElement("div");
     obs.classList.add("obstacle");
@@ -224,17 +225,27 @@ document.addEventListener("DOMContentLoaded", () => {
     obs.style.left = "800px";
     gameArea.appendChild(obs);
     obstacles.push(obs);
+
+clearInterval(gameInterval);
+clearInterval(spawnInterval);
+
+gameInterval = null;
+spawnInterval = null;
+    
   }
 
   // END GAME
-  function endGame() {
-    gameRunning = false;
+function endGame() {
+  gameRunning = false;
 
-    clearInterval(gameInterval);
-    clearInterval(spawnInterval);
+  clearInterval(gameInterval);
+  clearInterval(spawnInterval);
 
-    startBtn.textContent = "Restart";
+  gameInterval = null;
+  spawnInterval = null;
 
-    alert("Game Over 🌍 Score: " + score);
-  }
+  startBtn.textContent = "Restart";
+
+  alert("Game Over 🌍 Score: " + score);
+}
 });
