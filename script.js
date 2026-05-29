@@ -1,56 +1,105 @@
+// =========================
+// CONTACT FORM VALIDATION
+// =========================
+
 const form = document.querySelector(".contact-form");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+if (form) {
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-  let valid = true;
+    let valid = true;
 
-  // Fehler zurücksetzen
-  document.querySelectorAll(".error").forEach(el => el.innerText = "");
+    // Fehler zurücksetzen
+    document.querySelectorAll(".error").forEach(el => el.innerText = "");
 
-  // Werte holen
-  const firstname = document.getElementById("firstname").value.trim();
-  const lastname = document.getElementById("lastname").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const message = document.getElementById("message").value.trim();
+    document.querySelectorAll(".contact-form input, .contact-form textarea").forEach(el => {
+      el.classList.remove("invalid", "valid");
+    });
 
-  // Vorname
-  if (firstname === "" || firstname.length > 20 || !/^[A-Za-z]+$/.test(firstname)) {
-    document.getElementById("errFirstname").innerText = "Invalid firstname";
-    valid = false;
-  }
+    // Felder holen
+    const firstname = document.getElementById("firstname");
+    const lastname = document.getElementById("lastname");
+    const email = document.getElementById("email");
+    const message = document.getElementById("message");
 
-  // Nachname
-  if (lastname === "" || lastname.length > 20 || !/^[A-Za-z]+$/.test(lastname)) {
-    document.getElementById("errLastname").innerText = "Invalid lastname";
-    valid = false;
-  }
+    const firstnameValue = firstname.value.trim();
+    const lastnameValue = lastname.value.trim();
+    const emailValue = email.value.trim();
+    const messageValue = message.value.trim();
 
-  // Email
-  if (email === "" || email.length > 20 || !email.includes("@")) {
-    document.getElementById("errEmail").innerText = "Invalid Email";
-    valid = false;
-  }
+    // Regex
+    const nameRegex = /^[A-Za-zÀ-ÿ\s-]+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Nachricht
-  if (message === "" || message.length > 200) {
-    document.getElementById("errMessage").innerText = "Your message should be no longer than 200 characters. ";
-    valid = false;
-  }
+    // Vorname
+    if (
+      firstnameValue === "" ||
+      firstnameValue.length > 20 ||
+      !nameRegex.test(firstnameValue)
+    ) {
+      document.getElementById("errFirstname").innerText =
+        "Please enter a valid firstname.";
+      firstname.classList.add("invalid");
+      valid = false;
+    } else {
+      firstname.classList.add("valid");
+    }
 
-  // Formular wurde versendet -> Nachricht
-  if (valid) {
-    alert("Thank you for contacting us!");
-    form.submit();
-  }
-});
+    // Nachname
+    if (
+      lastnameValue === "" ||
+      lastnameValue.length > 20 ||
+      !nameRegex.test(lastnameValue)
+    ) {
+      document.getElementById("errLastname").innerText =
+        "Please enter a valid lastname.";
+      lastname.classList.add("invalid");
+      valid = false;
+    } else {
+      lastname.classList.add("valid");
+    }
+
+    // Email
+    if (emailValue === "" || !emailRegex.test(emailValue)) {
+      document.getElementById("errEmail").innerText =
+        "Please enter a valid email address.";
+      email.classList.add("invalid");
+      valid = false;
+    } else {
+      email.classList.add("valid");
+    }
+
+    // Nachricht
+    if (messageValue === "" || messageValue.length > 200) {
+      document.getElementById("errMessage").innerText =
+        "Your message must be between 1 and 200 characters.";
+      message.classList.add("invalid");
+      valid = false;
+    } else {
+      message.classList.add("valid");
+    }
+
+    // Wenn alles korrekt ist
+    if (valid) {
+      alert("Thank you for contacting us!");
+      form.submit();
+    }
+  });
+}
+
+// =========================
+// HAMBURGER MENU
+// =========================
 
 const hamburger = document.getElementById("hamburger");
 const nav = document.getElementById("nav");
 
-hamburger.addEventListener("click", () => {
-  nav.classList.toggle("active");
-});
+if (hamburger && nav) {
+  hamburger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+}
 
 // =========================
 // ACTION PAGE GAME (DINO)
@@ -74,10 +123,12 @@ let gameInterval;
 let spawnInterval;
 
 // START
-startBtn?.addEventListener("click", startGame);
+if (startBtn && gameArea && scoreEl) {
+  startBtn.addEventListener("click", startGame);
+}
 
 function startGame() {
-  if (gameRunning) return;
+  if (gameRunning || !gameArea || !startBtn || !scoreEl) return;
 
   resetGame();
   gameRunning = true;
@@ -105,6 +156,7 @@ function resetGame() {
   speed = 6;
   velocityY = 0;
   dinoY = 0;
+  isJumping = false;
   scoreEl.textContent = 0;
 }
 
@@ -152,14 +204,16 @@ function updateGame() {
       score++;
       scoreEl.textContent = score;
 
-      if (score % 5 === 0) speed += 0.5;
+      if (score % 5 === 0) {
+        speed += 0.5;
+      }
     }
   });
 }
 
-// OBSTACLES (Koralle / Natur / Plastik Mix)
+// OBSTACLES
 function spawnObstacle() {
-  if (!gameRunning) return;
+  if (!gameRunning || !gameArea) return;
 
   const obs = document.createElement("div");
   obs.classList.add("obstacle");
@@ -180,9 +234,14 @@ function endGame() {
   clearInterval(spawnInterval);
 
   document.removeEventListener("keydown", jump);
-  gameArea.removeEventListener("click", jump);
 
-  startBtn.textContent = "Restart";
+  if (gameArea) {
+    gameArea.removeEventListener("click", jump);
+  }
+
+  if (startBtn) {
+    startBtn.textContent = "Restart";
+  }
 
   setTimeout(() => {
     alert("Game Over 🌍 Score: " + score);
