@@ -159,17 +159,25 @@ document.addEventListener("DOMContentLoaded", () => {
     scoreEl.textContent = "0";
   }
 
-  // JUMP
-  function jump(e) {
-    if (!gameRunning) return;
+function jump(e) {
+  if (!gameRunning) return;
 
-    if (e.type === "click" || e.code === "Space") {
-      if (!isJumping) {
-        velocityY = -14;
-        isJumping = true;
-      }
+  if (e.code === "Space") {
+    e.preventDefault(); // verhindert das Runterscrollen
+
+    if (!isJumping) {
+      velocityY = -14;
+      isJumping = true;
     }
   }
+
+  if (e.type === "click") {
+    if (!isJumping) {
+      velocityY = -14;
+      isJumping = true;
+    }
+  }
+}
 
   // GAME LOOP
   function updateGame() {
