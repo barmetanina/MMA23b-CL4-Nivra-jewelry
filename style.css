@@ -711,3 +711,159 @@ body {
 .info-box p {
   color: #666;
 }
+
+/* =========================
+   ACTION PAGE
+========================= */
+
+/* HERO CONTENT FEINSCHLIFF */
+.hero-content {
+  max-width: 700px;
+}
+
+/* IMPACT SECTION */
+.impact {
+  padding: 70px 24px;
+  text-align: center;
+  background: #f8f6f2;
+}
+
+.impact h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.impact-card {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+}
+
+.impact-card:hover {
+  transform: translateY(-4px);
+}
+
+.impact-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.impact-number {
+  font-size: 34px;
+  font-weight: 700;
+  color: #b38b59;
+}
+
+/* GAME SECTION */
+.game {
+  padding: 70px 24px;
+  text-align: center;
+  background: white;
+}
+
+.game h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.game p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.game-area {
+  position: relative;
+  height: 260px;
+  background: linear-gradient(135deg, #d9d2c3, #bfa98a);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: 500;
+}
+
+.dino-placeholder {
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  font-size: 34px;
+}
+
+.obstacle-placeholder {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  font-size: 28px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f6f2;
+  padding: 16px 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.game-info p {
+  margin: 0;
+  color: #111;
+  font-weight: 500;
+}
+
+/* ACTION INFO */
+.action-info {
+  padding: 70px 24px;
+  text-align: center;
+  background: #f8f6f2;
+}
+
+.action-info h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  margin-bottom: 12px;
+  color: #111;
+}
+
+.action-info p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* RESPONSIVE */
+@media (min-width: 900px) {
+  .game-container {
+    grid-template-columns: 2fr 1fr;
+    align-items: start;
+  }
+}
