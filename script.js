@@ -10,14 +10,12 @@ if (form) {
 
     let valid = true;
 
-    // Fehler zurücksetzen
     document.querySelectorAll(".error").forEach(el => el.innerText = "");
 
     document.querySelectorAll(".contact-form input, .contact-form textarea").forEach(el => {
       el.classList.remove("invalid", "valid");
     });
 
-    // Felder holen
     const firstname = document.getElementById("firstname");
     const lastname = document.getElementById("lastname");
     const email = document.getElementById("email");
@@ -28,61 +26,81 @@ if (form) {
     const emailValue = email.value.trim();
     const messageValue = message.value.trim();
 
-    // Regex
     const nameRegex = /^[A-Za-zÀ-ÿ\s-]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Vorname
-    if (
-      firstnameValue === "" ||
-      firstnameValue.length > 20 ||
-      !nameRegex.test(firstnameValue)
-    ) {
+    if (firstnameValue === "") {
       document.getElementById("errFirstname").innerText =
-        "Please enter a valid firstname.";
+        "Firstname is required.";
+      firstname.classList.add("invalid");
+      valid = false;
+    } else if (firstnameValue.length > 20) {
+      document.getElementById("errFirstname").innerText =
+        "Firstname can have a maximum of 20 characters.";
+      firstname.classList.add("invalid");
+      valid = false;
+    } else if (!nameRegex.test(firstnameValue)) {
+      document.getElementById("errFirstname").innerText =
+        "Firstname may only contain letters, spaces or hyphens.";
       firstname.classList.add("invalid");
       valid = false;
     } else {
       firstname.classList.add("valid");
     }
 
-    // Nachname
-    if (
-      lastnameValue === "" ||
-      lastnameValue.length > 20 ||
-      !nameRegex.test(lastnameValue)
-    ) {
+    if (lastnameValue === "") {
       document.getElementById("errLastname").innerText =
-        "Please enter a valid lastname.";
+        "Lastname is required.";
+      lastname.classList.add("invalid");
+      valid = false;
+    } else if (lastnameValue.length > 20) {
+      document.getElementById("errLastname").innerText =
+        "Lastname can have a maximum of 20 characters.";
+      lastname.classList.add("invalid");
+      valid = false;
+    } else if (!nameRegex.test(lastnameValue)) {
+      document.getElementById("errLastname").innerText =
+        "Lastname may only contain letters, spaces or hyphens.";
       lastname.classList.add("invalid");
       valid = false;
     } else {
       lastname.classList.add("valid");
     }
 
-    // Email
-    if (emailValue === "" || !emailRegex.test(emailValue)) {
+    if (emailValue === "") {
       document.getElementById("errEmail").innerText =
-        "Please enter a valid email address.";
+        "Email address is required.";
+      email.classList.add("invalid");
+      valid = false;
+    } else if (!emailValue.includes("@")) {
+      document.getElementById("errEmail").innerText =
+        "Email address must contain an @ sign.";
+      email.classList.add("invalid");
+      valid = false;
+    } else if (!emailRegex.test(emailValue)) {
+      document.getElementById("errEmail").innerText =
+        "Please use the format name@example.com.";
       email.classList.add("invalid");
       valid = false;
     } else {
       email.classList.add("valid");
     }
 
-    // Nachricht
-    if (messageValue === "" || messageValue.length > 200) {
+    if (messageValue === "") {
       document.getElementById("errMessage").innerText =
-        "Your message must be between 1 and 200 characters.";
+        "Please enter a message.";
+      message.classList.add("invalid");
+      valid = false;
+    } else if (messageValue.length > 200) {
+      document.getElementById("errMessage").innerText =
+        "Your message can have a maximum of 200 characters.";
       message.classList.add("invalid");
       valid = false;
     } else {
       message.classList.add("valid");
     }
 
-    // Wenn alles korrekt ist
     if (valid) {
-      alert("Thank you for contacting us!");
       form.submit();
     }
   });
@@ -125,7 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let gameInterval;
   let spawnInterval;
 
-  // START
   startBtn.addEventListener("click", startGame);
   gameArea.addEventListener("click", jump);
   document.addEventListener("keydown", jump);
@@ -159,27 +176,26 @@ document.addEventListener("DOMContentLoaded", () => {
     scoreEl.textContent = "0";
   }
 
-function jump(e) {
-  if (!gameRunning) return;
+  function jump(e) {
+    if (!gameRunning) return;
 
-  if (e.code === "Space") {
-    e.preventDefault(); // verhindert das Runterscrollen
+    if (e.code === "Space") {
+      e.preventDefault();
 
-    if (!isJumping) {
-      velocityY = -14;
-      isJumping = true;
+      if (!isJumping) {
+        velocityY = -14;
+        isJumping = true;
+      }
+    }
+
+    if (e.type === "click") {
+      if (!isJumping) {
+        velocityY = -14;
+        isJumping = true;
+      }
     }
   }
 
-  if (e.type === "click") {
-    if (!isJumping) {
-      velocityY = -14;
-      isJumping = true;
-    }
-  }
-}
-
-  // GAME LOOP
   function updateGame() {
     velocityY += 0.8;
     dinoY += velocityY;
@@ -198,12 +214,10 @@ function jump(e) {
       x -= speed;
       obs.style.left = x + "px";
 
-      // Collision
       if (x < 90 && x > 40 && dinoY > -30) {
         endGame();
       }
 
-      // Remove obstacle
       if (x < -50) {
         obs.remove();
         obstacles.splice(i, 1);
@@ -211,7 +225,6 @@ function jump(e) {
         score++;
         scoreEl.textContent = score;
 
-        // Speed increase
         if (score % 5 === 0) {
           speed += 0.5;
         }
@@ -219,7 +232,6 @@ function jump(e) {
     });
   }
 
-  // OBSTACLES
   function spawnObstacle() {
     if (!gameRunning) return;
 
@@ -234,7 +246,6 @@ function jump(e) {
     obstacles.push(obs);
   }
 
-  // END GAME
   function endGame() {
     gameRunning = false;
 
