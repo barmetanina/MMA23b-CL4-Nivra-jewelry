@@ -247,16 +247,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function endGame() {
-    gameRunning = false;
+  gameRunning = false;
 
-    clearInterval(gameInterval);
-    clearInterval(spawnInterval);
+  clearInterval(gameInterval);
+  clearInterval(spawnInterval);
 
-    gameInterval = null;
-    spawnInterval = null;
+  gameInterval = null;
+  spawnInterval = null;
 
-    startBtn.textContent = "Restart";
+  startBtn.textContent = "Restart";
 
+  // Restart erlaubt wieder komplettes Neuspiel
+  document.removeEventListener("keydown", jump);
+  gameArea.removeEventListener("click", jump);
+
+  setTimeout(() => {
     alert("Game Over 🌍 Score: " + score);
-  }
+  }, 100);
+
+  // Button wieder aktivieren
+  startBtn.onclick = () => {
+    startGame();
+  };
+}
 });
