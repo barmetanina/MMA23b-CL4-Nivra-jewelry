@@ -990,3 +990,10 @@ body {
 .game-info {
   backdrop-filter: blur(6px);
 }
+.game-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+}
