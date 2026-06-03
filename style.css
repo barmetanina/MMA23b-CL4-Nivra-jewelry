@@ -6,6 +6,9 @@ body {
   line-height: 1.6;
 }
 
+
+/* HEADER & NAVIGATION, Logo, Menü und mobiler Hamburger */
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -13,7 +16,7 @@ body {
   padding: 18px 24px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   background: #f8f6f2;
-  position: sticky;
+  position: sticky; /* Header bleibt beim Scrollen oben */
   top: 0;
   z-index: 100;
 }
@@ -38,6 +41,17 @@ body {
   color: #b38b59;
 }
 
+.hamburger {
+  display: none; /* Wird erst auf kleinen Bildschirmen angezeigt */
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* HERO STARTSEITE, Grosser Startbereich auf index.html */
+
 .hero {
   height: 420px;
   background: linear-gradient(
@@ -53,6 +67,10 @@ body {
   padding: 0 20px;
 }
 
+.hero-content {
+  max-width: 700px;
+}
+
 .hero h1 {
   font-size: 52px;
   font-family: "Playfair Display", serif;
@@ -64,6 +82,39 @@ body {
   font-size: 18px;
   opacity: 0.92;
 }
+
+
+/* KLEINER HERO, für Unterseiten wie Contact und Action
+ */
+
+.hero-small {
+  height: 260px;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    #7a7a7a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero-small h1 {
+  font-size: 44px;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 10px;
+}
+
+.hero-small p {
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+
+/* BUTTONS - Wiederverwendbare Button-Styles */
 
 .btn-primary {
   margin-top: 22px;
@@ -82,11 +133,30 @@ body {
   transform: translateY(-2px);
 }
 
+.btn-dark {
+  margin-top: 16px;
+  width: 100%;
+  padding: 13px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+  background: #b38b59;
+}
+
+
+/*  FEATURES Karten auf der Startseite*/
 
 .features {
   padding: 70px 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); /* Automatisch responsive */
   gap: 20px;
 }
 
@@ -113,8 +183,11 @@ body {
 }
 
 
+/* PRODUCTS - Produktbereich auf Startseite und Shop */
+
 .products {
   padding: 70px 24px;
+  padding-top: 40px; /* Ursprüngliche Shop-Erweiterung bleibt erhalten */
 }
 
 .section-header {
@@ -143,7 +216,7 @@ body {
 .product-grid {
   margin-top: 28px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); /* Produktkarten passen sich der Breite an */
   gap: 22px;
 }
 
@@ -169,6 +242,19 @@ body {
   color: #666;
 }
 
+.product-card .price {
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 6px;
+}
+
+.product-card .desc {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
 .img-placeholder {
   width: 100%;
   height: 220px;
@@ -176,28 +262,13 @@ body {
   border-radius: 14px;
 }
 
-.btn-dark {
-  margin-top: 16px;
-  width: 100%;
-  padding: 13px;
-  background: #111;
-  color: white;
-  border: none;
-  border-radius: 999px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
 
-.btn-dark:hover {
-  background: #b38b59;
-}
-
+/* STORY SECTION Bild/Text-Bereich auf der Startseite */
 
 .story {
   padding: 80px 24px;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* Auf kleinen Bildschirmen einspaltig */
   gap: 30px;
   align-items: center;
 }
@@ -240,9 +311,14 @@ body {
   opacity: 0.7;
 }
 
+
+/* CONTACT FORM Kontaktformular und Formularfelder */
+
 .contact {
   padding: 70px 24px;
+  padding-top: 40px; /* Ursprünglicher Contact-Feinschliff bleibt erhalten */
   text-align: center;
+  background: #f8f6f2;
 }
 
 .contact h2 {
@@ -262,6 +338,10 @@ body {
   display: flex;
   flex-direction: column;
   text-align: left;
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
 }
 
 .contact-form label {
@@ -279,6 +359,7 @@ body {
   background: white;
   font-family: inherit;
   transition: border 0.3s ease;
+  box-sizing: border-box; /* Padding wird in die Breite eingerechnet */
 }
 
 .contact-form input:focus,
@@ -287,7 +368,8 @@ body {
   border-color: #b38b59;
 }
 
-/* ===== FORM VALIDATION ===== */
+
+/* FORM VALIDATION - Fehler- und Erfolgszustände für Formularfelder */
 
 .error {
   color: #b00020;
@@ -308,181 +390,13 @@ body {
   border: 2px solid #3c8c5a;
 }
 
-.contact-form input,
-.contact-form textarea {
-  box-sizing: border-box;
-}
 
-/* Mobile Optimierung */
-@media (max-width: 480px) {
-  .contact-form {
-    max-width: 100%;
-    padding: 22px;
-  }
-}
+/*  CONTACT INFO - Infokarten auf der Kontaktseite */
 
-.footer {
-  background: #111111;
-  color: #f5f5f5;
-  padding: 70px 10%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 40px;
-}
-
-.footer-col h4 {
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-  color: #d6b98c;
-}
-
-.footer-col a {
-  display: block;
-  color: #f5f5f5;
-  text-decoration: none;
-  font-size: 14px;
-  margin-bottom: 12px;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.footer-col a:hover {
-  color: #d6b98c;
-  transform: translateX(4px);
-}
-
-.footer-col p {
-  font-size: 14px;
-  margin: 6px 0;
-  color: #cccccc;
-}
-
-.footer-bottom {
-  grid-column: 1 / -1;
-  border-top: 1px solid rgba(214, 185, 140, 0.2);
-  margin-top: 20px;
-  padding-top: 20px;
-  text-align: center;
-  font-size: 13px;
-  color: #a8a8a8;
-}
-
-@media (max-width: 768px) {
-  .hero {
-    height: 360px;
-  }
-
-  .hero h1 {
-    font-size: 38px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .section-header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .section-header h2,
-  .story-text h2,
-  .contact h2 {
-    font-size: 30px;
-  }
-
-  .nav a {
-    margin-left: 14px;
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 900px) {
-  .story {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 600px) {
-  .footer {
-    padding: 50px 6%;
-    gap: 30px;
-    text-align: center;
-  }
-
-  .footer-col a:hover {
-    transform: none;
-  }
-}
-
-
-.hamburger {
-  display: none;
-  font-size: 28px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .header {
-    position: relative;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .nav {
-    display: none;
-    position: absolute;
-    top: 70px;
-    right: 20px;
-    background: white;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-  }
-
-  .nav.active {
-    display: flex;
-  }
-}
-/* HERO SMALL */
-.hero-small {
-  height: 260px;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.45)
-    ),
-    #7a7a7a;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  padding: 0 20px;
-}
-
-.hero-small h1 {
-  font-size: 44px;
-  font-family: "Playfair Display", serif;
-  margin-bottom: 10px;
-}
-
-.hero-small p {
-  font-size: 16px;
-  opacity: 0.9;
-}
-
-/* CONTACT INFO */
 .contact-info {
   padding: 60px 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Karten werden automatisch responsive */
   gap: 20px;
   text-align: center;
 }
@@ -509,98 +423,10 @@ body {
   color: #666;
 }
 
-/* CONTACT SECTION (spacing tweak) */
-.contact {
-  padding-top: 40px;
-}
 
-/* FAQ */
-.faq {
-  padding: 70px 24px;
-  max-width: 800px;
-  margin: 0 auto;
-}
+/* FAQ - Fragen und Antworten auf der Kontaktseite
+*/
 
-.faq h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 36px;
-  text-align: center;
-  margin-bottom: 30px;
-  color: #111;
-}
-
-.faq-item {
-  background: white;
-  padding: 20px 22px;
-  border-radius: 14px;
-  margin-bottom: 14px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease;
-}
-
-.faq-item:hover {
-  transform: translateY(-3px);
-}
-
-.faq-item h4 {
-  margin-bottom: 8px;
-  font-size: 16px;
-  color: #111;
-}
-
-.faq-item p {
-  color: #666;
-  font-size: 14px;
-}
-
-/* =========================
-   CONTACT PAGE EXTRA STYLES
-========================= */
-
-/* Contact Info Cards */
-.contact-info {
-  padding: 60px 24px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  text-align: center;
-}
-
-.info-card {
-  background: white;
-  padding: 28px;
-  border-radius: 18px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease;
-}
-
-.info-card:hover {
-  transform: translateY(-4px);
-}
-
-.info-card h3 {
-  font-family: "Playfair Display", serif;
-  margin-bottom: 10px;
-  color: #111;
-}
-
-.info-card p {
-  color: #666;
-}
-
-/* Contact Section Anpassung (Feinschliff) */
-.contact {
-  background: #f8f6f2;
-}
-
-.contact-form {
-  background: white;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-}
-
-/* FAQ Section */
 .faq {
   padding: 70px 24px;
   background: white;
@@ -640,9 +466,8 @@ body {
   margin: 0;
 }
 
-/* =========================
-   SHOP HERO
-========================= */
+
+/*  SHOP HERO Titelbereich der Shop-Seite */
 
 .shop-hero {
   padding: 80px 24px 40px;
@@ -662,14 +487,13 @@ body {
   font-size: 16px;
 }
 
-/* =========================
-   FILTER BAR
-========================= */
+
+/* SHOP FILTER  Filterbuttons auf der Shop-Seite */
 
 .shop-filter {
   padding: 20px 24px 40px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Buttons springen auf die nächste Zeile, wenn wenig Platz ist */
   justify-content: center;
   gap: 12px;
 }
@@ -691,35 +515,14 @@ body {
   border-color: #b38b59;
 }
 
-/* =========================
-   PRODUCT GRID (Shop Erweiterung)
-========================= */
 
-.products {
-  padding-top: 40px;
-}
-
-.product-card .price {
-  font-weight: 600;
-  color: #111;
-  margin-bottom: 6px;
-}
-
-.product-card .desc {
-  font-size: 13px;
-  color: #777;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-/* =========================
-   SHOP INFO BOXES
-========================= */
+/* SHOP INFO BOXEn - Nachhaltigkeit, Impact und Handmade
+ */
 
 .shop-info {
   padding: 70px 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive Boxen */
   gap: 20px;
   text-align: center;
 }
@@ -746,16 +549,9 @@ body {
   color: #666;
 }
 
-/* =========================
-   ACTION PAGE
-========================= */
 
-/* HERO CONTENT FEINSCHLIFF */
-.hero-content {
-  max-width: 700px;
-}
+/* ACTION PAGE Impact-Anzeige */
 
-/* IMPACT SECTION */
 .impact {
   padding: 70px 24px;
   text-align: center;
@@ -771,7 +567,7 @@ body {
 
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Impact-Karten responsive */
   gap: 20px;
 }
 
@@ -800,7 +596,9 @@ body {
   color: #b38b59;
 }
 
-/* GAME SECTION */
+
+/* GAME SECTION Spielfläche und Punkteanzeige */
+
 .game {
   padding: 70px 24px;
   text-align: center;
@@ -821,21 +619,33 @@ body {
 
 .game-container {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr; /* Standard: einspaltig */
   gap: 20px;
   max-width: 900px;
   margin: 0 auto;
 }
 
 .game-area {
-  position: relative;
+  position: relative; /* Wichtig: Dino und Hindernisse werden darin absolut positioniert */
   height: 260px;
-  background: linear-gradient(135deg, #d9d2c3, #bfa98a);
+  background: linear-gradient(to top, #bfa98a, #e6dccf);
   border-radius: 18px;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: inset 0 -25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Bodenlinie im Spiel */
+.game-area::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .game-placeholder {
@@ -843,18 +653,22 @@ body {
   font-weight: 500;
 }
 
-.dino-placeholder {
+/* Dino wird per JavaScript erstellt */
+.dino {
   position: absolute;
   bottom: 20px;
   left: 40px;
-  font-size: 34px;
+  font-size: 38px;
+  transition: transform 0.08s linear;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
 }
 
-.obstacle-placeholder {
+/* Hindernisse werden per JavaScript erstellt */
+.obstacle {
   position: absolute;
   bottom: 20px;
-  right: 40px;
-  font-size: 28px;
+  font-size: 30px;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
 }
 
 .game-info {
@@ -865,6 +679,7 @@ body {
   padding: 16px 20px;
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(6px);
 }
 
 .game-info p {
@@ -873,7 +688,9 @@ body {
   font-weight: 500;
 }
 
-/* ACTION INFO */
+
+/*  ACTION INFO  Erklärung unter dem Game */
+
 .action-info {
   padding: 70px 24px;
   text-align: center;
@@ -894,34 +711,14 @@ body {
   line-height: 1.8;
 }
 
-/* RESPONSIVE */
-@media (min-width: 900px) {
-  .game-container {
-    grid-template-columns: 2fr 1fr;
-    align-items: start;
-  }
-}
 
-.dino {
-  position: absolute;
-  bottom: 20px;
-  left: 40px;
-  font-size: 34px;
-  transition: transform 0.1s linear;
-}
-
-.obstacle {
-  position: absolute;
-  bottom: 20px;
-  font-size: 28px;
-}
-
+/*  THANK YOU PAGE  Danke-Seite nach Kontaktformular */
 
 .thankyou-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* Box wird vertikal und horizontal zentriert */
   background: #f8f6f2;
   padding: 20px;
 }
@@ -932,7 +729,7 @@ body {
   border-radius: 20px;
   text-align: center;
   max-width: 500px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .thankyou-box h1 {
@@ -947,53 +744,140 @@ body {
   margin-bottom: 30px;
 }
 
-/* =========================
-   GAME IMPROVEMENTS (ADD ON)
-========================= */
 
-/* nicer page background */
-body {
-  background: radial-gradient(circle at top, #ffffff 0%, #e9e1d6 100%);
-}
+/*   FOOTER  Unterer Bereich der Website  */
 
-/* improved game background */
-.game-area {
-  background: linear-gradient(to top, #bfa98a, #e6dccf);
-  box-shadow: inset 0 -25px 50px rgba(0, 0, 0, 0.15);
-}
-
-/* ground line */
-.game-area::after {
-  content: "";
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: rgba(0, 0, 0, 0.2);
-}
-
-/* dino polish */
-.dino {
-  font-size: 38px;
-  transition: transform 0.08s linear;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
-}
-
-/* obstacles polish */
-.obstacle {
-  font-size: 30px;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
-}
-
-/* game info blur effect */
-.game-info {
-  backdrop-filter: blur(6px);
-}
-.game-container {
-  max-width: 900px;
-  margin: 0 auto;
+.footer {
+  background: #111111;
+  color: #f5f5f5;
+  padding: 70px 10%;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Footer-Spalten passen sich an */
+  gap: 40px;
+}
+
+.footer-col h4 {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  color: #d6b98c;
+}
+
+.footer-col a {
+  display: block;
+  color: #f5f5f5;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 12px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-col a:hover {
+  color: #d6b98c;
+  transform: translateX(4px);
+}
+
+.footer-col p {
+  font-size: 14px;
+  margin: 6px 0;
+  color: #cccccc;
+}
+
+.footer-bottom {
+  grid-column: 1 / -1; /* Nimmt die ganze Footer-Breite ein */
+  border-top: 1px solid rgba(214, 185, 140, 0.2);
+  margin-top: 20px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #a8a8a8;
+}
+
+
+/*  RESPONSIVE DESIGN  Anpassungen für grössere und kleinere Bildschirme */
+
+@media (min-width: 900px) {
+  .story {
+    grid-template-columns: 1fr 1fr; /* Story wird ab 900px zweispaltig */
+  }
+
+  .game-container {
+    grid-template-columns: 2fr 1fr; /* Game links breiter, Info rechts schmaler */
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 360px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .section-header h2,
+  .story-text h2,
+  .contact h2 {
+    font-size: 30px;
+  }
+
+  .header {
+    position: relative;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: white;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav.active {
+    display: flex; /* Wird durch JavaScript beim Klick auf Hamburger aktiviert */
+  }
+
+  .nav a {
+    margin-left: 14px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 50px 6%;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .footer-col a:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form {
+    max-width: 100%;
+    padding: 22px;
+  }
 }
