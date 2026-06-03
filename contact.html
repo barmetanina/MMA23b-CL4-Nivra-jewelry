@@ -55,26 +55,29 @@
       </div>
     </section>
 
-    <!-- CONTACT FORM -->
-    <section class="contact">
-      <h2>Schreib uns eine Nachricht</h2>
-      <p>Wir antworten normalerweise innerhalb von 1–2 Tagen.</p>
+   <section class="contact">
+      <h2>Get in Touch</h2>
+      <p>We’d love to hear from you.</p>
+<form class="contact-form" action="contact.php" method="POST" novalidate>
+  <label for="firstname">Firstname *</label>
+  <input id="firstname" name="firstname" type="text" placeholder="Your firstname" required />
+  <small id="errFirstname" class="error"></small>
 
-      <form class="contact-form">
-        <label>Name</label>
-        <input type="text" placeholder="Dein Name" required />
+  <label for="lastname">Lastname *</label>
+  <input id="lastname" name="lastname" type="text" placeholder="Your lastname" required />
+  <small id="errLastname" class="error"></small>
 
-        <label>Email</label>
-        <input type="email" placeholder="dein@email.ch" required />
+  <label for="email">Email *</label>
+  <input id="email" name="email" type="email" placeholder="you@email.com" required />
+  <small id="errEmail" class="error"></small>
 
-        <label>Betreff</label>
-        <input type="text" placeholder="Worum geht es?" />
+  <label for="message">Message *</label>
+  <textarea id="message" name="message" placeholder="Type your message..." maxlength="200" required></textarea>
+  <small id="errMessage" class="error"></small>
 
-        <label>Nachricht</label>
-        <textarea placeholder="Deine Nachricht..." rows="6" required></textarea>
-
-        <button class="btn-dark" type="submit">Senden</button>
-      </form>
+  <button type="submit" class="btn-dark">Submit</button>
+</form>
+      
     </section>
 
     <!-- FAQ -->
