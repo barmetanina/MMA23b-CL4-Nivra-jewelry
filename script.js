@@ -219,9 +219,9 @@ document.addEventListener("keydown", (e) => {
       x -= speed;
       obs.style.left = x + "px";
 
-      if (x < 90 && x > 40 && dinoY > -30) {
-        endGame();
-      }
+if (x < 120 && x > 50 && dinoY > -60) {
+  endGame();
+}
 
       if (x < -50) {
         obs.remove();
@@ -246,12 +246,25 @@ document.addEventListener("keydown", (e) => {
     const items = ["🪸", "🌳"];
     obs.textContent = items[Math.floor(Math.random() * items.length)];
 
-    obs.style.left = "800px";
+    obs.style.left = gameArea.offsetWidth + "px";
     gameArea.appendChild(obs);
     obstacles.push(obs);
   }
 
   function endGame() {
+const treeCount = document.getElementById("treeCount");
+const coralCount = document.getElementById("coralCount");
+const totalImpact = document.getElementById("totalImpact");
+
+if (treeCount && coralCount && totalImpact) {
+  const trees = Math.floor(score / 3);
+  const corals = Math.floor(score / 5);
+
+  treeCount.textContent = trees;
+  coralCount.textContent = corals;
+  totalImpact.textContent = trees + corals;
+}
+    
   gameRunning = false;
 
   clearInterval(gameInterval);
@@ -262,17 +275,11 @@ document.addEventListener("keydown", (e) => {
 
   startBtn.textContent = "Restart";
 
-  // Restart erlaubt wieder komplettes Neuspiel
-  document.removeEventListener("keydown", jump);
-  gameArea.removeEventListener("click", jump);
+ 
 
   setTimeout(() => {
     alert("Game Over 🌍 Score: " + score);
   }, 100);
 
-  // Button wieder aktivieren
-  startBtn.onclick = () => {
-    startGame();
-  };
 }
 });
