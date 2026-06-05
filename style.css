@@ -747,13 +747,19 @@ body {
 
 /*   FOOTER  Unterer Bereich der Website  */
 
+/* FOOTER */
+
 .footer {
   background: #111111;
   color: #f5f5f5;
   padding: 70px 10%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Footer-Spalten passen sich an */
+  grid-template-columns: repeat(4, 1fr);
   gap: 40px;
+}
+
+.footer-col {
+  text-align: center;
 }
 
 .footer-col h4 {
@@ -770,12 +776,11 @@ body {
   text-decoration: none;
   font-size: 14px;
   margin-bottom: 12px;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .footer-col a:hover {
   color: #d6b98c;
-  transform: translateX(4px);
 }
 
 .footer-col p {
@@ -785,7 +790,7 @@ body {
 }
 
 .footer-bottom {
-  grid-column: 1 / -1; /* Nimmt die ganze Footer-Breite ein */
+  grid-column: 1 / -1;
   border-top: 1px solid rgba(214, 185, 140, 0.2);
   margin-top: 20px;
   padding-top: 20px;
