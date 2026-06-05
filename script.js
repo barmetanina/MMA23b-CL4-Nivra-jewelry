@@ -31,17 +31,17 @@ if (form) {
 
     if (firstnameValue === "") {
       document.getElementById("errFirstname").innerText =
-        "Firstname is required.";
+        "Vorname ist ein Pflichtfeld.";
       firstname.classList.add("invalid");
       valid = false;
     } else if (firstnameValue.length > 20) {
       document.getElementById("errFirstname").innerText =
-        "Firstname can have a maximum of 20 characters.";
+        "Vorname darf maximal 20 Zeichen lang sein.";
       firstname.classList.add("invalid");
       valid = false;
     } else if (!nameRegex.test(firstnameValue)) {
       document.getElementById("errFirstname").innerText =
-        "Firstname may only contain letters, spaces or hyphens.";
+        "Vorname darf nur Buchstaben, Leerzeichen oder Bindestriche enthalten.";
       firstname.classList.add("invalid");
       valid = false;
     } else {
@@ -50,17 +50,17 @@ if (form) {
 
     if (lastnameValue === "") {
       document.getElementById("errLastname").innerText =
-        "Lastname is required.";
+        "Nachname ist ein Pflichtfeld.";
       lastname.classList.add("invalid");
       valid = false;
     } else if (lastnameValue.length > 20) {
       document.getElementById("errLastname").innerText =
-        "Lastname can have a maximum of 20 characters.";
+        "Nachname darf maximal 20 Zeichen lang sein.";
       lastname.classList.add("invalid");
       valid = false;
     } else if (!nameRegex.test(lastnameValue)) {
       document.getElementById("errLastname").innerText =
-        "Lastname may only contain letters, spaces or hyphens.";
+        "Nachname darf nur Buchstaben, Leerzeichen oder Bindestriche enthalten.";
       lastname.classList.add("invalid");
       valid = false;
     } else {
@@ -69,17 +69,17 @@ if (form) {
 
     if (emailValue === "") {
       document.getElementById("errEmail").innerText =
-        "Email address is required.";
+        "Email Adresse ist ein Pflichtfeld.";
       email.classList.add("invalid");
       valid = false;
     } else if (!emailValue.includes("@")) {
       document.getElementById("errEmail").innerText =
-        "Email address must contain an @ sign.";
+        "Die E-Mail-Adresse muss ein @-Zeichen enthalten.";
       email.classList.add("invalid");
       valid = false;
     } else if (!emailRegex.test(emailValue)) {
       document.getElementById("errEmail").innerText =
-        "Please use the format name@example.com.";
+        "Bitte verwenden Sie das Format „name@example.com“.";
       email.classList.add("invalid");
       valid = false;
     } else {
@@ -88,12 +88,12 @@ if (form) {
 
     if (messageValue === "") {
       document.getElementById("errMessage").innerText =
-        "Please enter a message.";
+        "Bitte gib eine Nachricht ein.";
       message.classList.add("invalid");
       valid = false;
     } else if (messageValue.length > 200) {
       document.getElementById("errMessage").innerText =
-        "Your message can have a maximum of 200 characters.";
+        "Ihre Nachricht darf maximal 200 Zeichen lang sein.";
       message.classList.add("invalid");
       valid = false;
     } else {
