@@ -287,7 +287,10 @@ body {
 
 .story-img {
   height: 320px;
-  background: linear-gradient(135deg, #cbb79d, #9d8669);
+  background-image: url("vorstellung.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 20px;
 }
 
