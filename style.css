@@ -625,31 +625,29 @@ body {
   margin: 0 auto;
 }
 
-.game-area {
-  position: relative;
-  height: 350px;
-  overflow: hidden;
+.game-area::before {
+  content: "";
 
-  border-radius: 24px;
+  position: absolute;
+  top: 30px;
+  left: -100px;
+
+  width: 300px;
+  height: 80px;
 
   background:
-    linear-gradient(
-      to bottom,
-      #87ceeb 0%,
-      #b8e6ff 45%,
-      #dff5ff 100%
-    );
+    radial-gradient(circle, white 35%, transparent 36%),
+    radial-gradient(circle, white 35%, transparent 36%),
+    radial-gradient(circle, white 35%, transparent 36%);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-size: 80px 80px;
+  background-position:
+    0 0,
+    70px 10px,
+    140px 0;
 
-  border: 3px solid rgba(255,255,255,0.5);
-
-  box-shadow:
-    0 20px 40px rgba(0,0,0,0.12),
-    inset 0 -50px 60px rgba(0,0,0,0.08);
-}
+  opacity: 0.8;
+} 
 
 .game-area {
   position: relative;
