@@ -1,5 +1,7 @@
 <?php
 require 'db.php';
 
-echo "Datenbank Verbindung funktioniert!";
+$sql = "SELECT * FROM products";
+$result = $conn->query($sql);
+
 ?>
