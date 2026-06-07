@@ -1,3 +1,22 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+$host = "localhost";
+$dbname = "webshop-nivra";
+$user = "maria-schibli";
+$pass = "8z_L5Wemwzz8%Ecs";
+
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+if ($conn->connect_error) {
+    die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM table_product";
+$result = $conn->query($sql);
+?>
+
 <!doctype html>
 <html lang="de">
   <head>
@@ -47,73 +66,41 @@
     <!-- PRODUCTS GRID -->
     <section class="products">
 
-      <div class="product-grid">
+     <div class="product-grid">
 
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Olivenzweig Ring</h4>
-          <p class="price">CHF 89,00</p>
-          <p class="desc">Recyceltes Silber, von der Natur inspiriertes Design.</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
+		<?php
+		if ($result->num_rows > 0) {
+		  while($row = $result->fetch_assoc()) {
+		?>
 
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Wald Armband</h4>
-          <p class="price">CHF 124,00</p>
-          <p class="desc">Handgefertigter Anhänger mit grünem Stein.</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
+		  <div class="product-card">
+			<div class="img-placeholder"></div>
 
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Erden Hoops</h4>
-          <p class="price">CHF 69,00</p>
-          <p class="desc">Minimalistische Ohrringe gemacht von wiedergewonnenem Metal.</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
+			<h4><?= $row['product_name']; ?></h4>
 
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Stein Armband</h4>
-          <p class="price">CHF 99,00</p>
-          <p class="desc">Natürliche Steine, verstellbare Grösse.</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
+			<p class="price">
+			  CHF <?= $row['product_price']; ?>
+			</p>
 
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Ozean Ring</h4>
-          <p class="price">CHF 79,00</p>
-          <p class="desc">Inspiriert von Wellen und aus recycletem silber.</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
+			<p class="desc">
+			  <?= $row['product_description']; ?>
+			</p>
 
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Goldenes Blatt Halskette</h4>
-          <p class="price">CHF 139,00</p>
-          <p class="desc">Elegante Halskette mit Blatt Detail.</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
+			<p>
+			  <em><?= $row['product_availibility']; ?></em>
+			</p>
 
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Wilde Natur Ohrringe</h4>
-          <p class="price">CHF 59,00</p>
-          <p class="desc">Leichte handgemachte Ohrringe.</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
+			<button class="btn-dark">In den Warenkorb</button>
+		  </div>
 
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Fluss Armband</h4>
-          <p class="price">CHF 85,00</p>
-          <p class="desc">Geschwungenes Design inspiriert von den Flüssen.</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
+		<?php
+		  }
+		} else {
+		  echo "Keine Produkte gefunden.";
+		}
+		?>
 
-      </div>
+</div>
     </section>
 
     <!-- INFO SECTION -->
