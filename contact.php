@@ -21,13 +21,14 @@ try {
     $firstname = trim($_POST["firstname"]);
     $lastname = trim($_POST["lastname"]);
     $email = trim($_POST["email"]);
+    $project = trim($_POST["project"]);
     $message = trim($_POST["message"]);
 
     // Daten speichern
     $sql = "INSERT INTO contact_messages
-            (firstname, lastname, email, message)
+            (firstname, lastname, email, project, message)
             VALUES
-            (:firstname, :lastname, :email, :message)";
+            (:firstname, :lastname, :email, :project, :message)";
 
     $stmt = $pdo->prepare($sql);
 
@@ -35,6 +36,7 @@ try {
         ':firstname' => $firstname,
         ':lastname' => $lastname,
         ':email' => $email,
+        ':project' => $project,
         ':message' => $message
     ]);
 
