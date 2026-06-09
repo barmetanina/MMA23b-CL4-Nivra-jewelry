@@ -1,4 +1,6 @@
+// =========================
 // CONTACT FORM VALIDATION
+// =========================
 const form = document.querySelector(".contact-form");
 
 if (form) {
@@ -9,28 +11,23 @@ if (form) {
 
     document.querySelectorAll(".error").forEach(el => el.innerText = "");
 
-    document
-      .querySelectorAll(".contact-form input, .contact-form textarea, .contact-form select")
-      .forEach(el => {
-        el.classList.remove("invalid", "valid");
-      });
+    document.querySelectorAll(".contact-form input, .contact-form textarea").forEach(el => {
+      el.classList.remove("invalid", "valid");
+    });
 
     const firstname = document.getElementById("firstname");
     const lastname = document.getElementById("lastname");
     const email = document.getElementById("email");
-    const project = document.getElementById("project");
     const message = document.getElementById("message");
 
     const firstnameValue = firstname.value.trim();
     const lastnameValue = lastname.value.trim();
     const emailValue = email.value.trim();
-    const projectValue = project.value.trim();
     const messageValue = message.value.trim();
 
     const nameRegex = /^[A-Za-zÀ-ÿ\s-]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Vorname
     if (firstnameValue === "") {
       document.getElementById("errFirstname").innerText =
         "Vorname ist ein Pflichtfeld.";
@@ -50,7 +47,6 @@ if (form) {
       firstname.classList.add("valid");
     }
 
-    // Nachname
     if (lastnameValue === "") {
       document.getElementById("errLastname").innerText =
         "Nachname ist ein Pflichtfeld.";
@@ -70,7 +66,6 @@ if (form) {
       lastname.classList.add("valid");
     }
 
-    // E-Mail
     if (emailValue === "") {
       document.getElementById("errEmail").innerText =
         "Email Adresse ist ein Pflichtfeld.";
@@ -90,17 +85,11 @@ if (form) {
       email.classList.add("valid");
     }
 
-    // Nachhaltigkeitsprojekt
     if (projectValue === "") {
-      document.getElementById("errProject").innerText =
-        "Bitte wähle ein Nachhaltigkeitsprojekt aus.";
-      project.classList.add("invalid");
-      valid = false;
-    } else {
-      project.classList.add("valid");
-    }
+      docuemtn.getElementById("errMessage").innerText =
+        "Bitte wähle ein Projekt aus.";
+      message.class
 
-    // Nachricht
     if (messageValue === "") {
       document.getElementById("errMessage").innerText =
         "Bitte gib eine Nachricht ein.";
@@ -116,19 +105,17 @@ if (form) {
     }
 
     if (valid) {
-  alert("Das Formular wurde verschickt.");
-  form.reset();
-
-  document
-    .querySelectorAll(".contact-form input, .contact-form textarea, .contact-form select")
-    .forEach(el => {
-      el.classList.remove("invalid", "valid");
-    });
-}
+      form.submit();
+    }
   });
 }
+```
 
+// =========================
 // HAMBURGER MENU
+// =========================
+
+```js
 const hamburger = document.getElementById("hamburger");
 const nav = document.getElementById("nav");
 
@@ -137,9 +124,13 @@ if (hamburger && nav) {
     nav.classList.toggle("active");
   });
 }
+```
 
-// ACTION PAGE GAME (DINO-GAME)
+// =========================
+// ACTION PAGE GAME (DINO)
+// =========================
 
+```js
 document.addEventListener("DOMContentLoaded", () => {
   const gameArea = document.getElementById("gameArea");
   const startBtn = document.getElementById("startGame");
@@ -298,4 +289,3 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100);
   }
 });
-```
