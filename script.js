@@ -116,8 +116,15 @@ if (form) {
     }
 
     if (valid) {
-      form.submit();
-    }
+  alert("Das Formular wurde verschickt.");
+  form.reset();
+
+  document
+    .querySelectorAll(".contact-form input, .contact-form textarea, .contact-form select")
+    .forEach(el => {
+      el.classList.remove("invalid", "valid");
+    });
+}
   });
 }
 
