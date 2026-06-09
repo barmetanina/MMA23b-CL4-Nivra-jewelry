@@ -366,7 +366,8 @@ body {
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select {
   width: 100%;
   padding: 14px;
   border-radius: 12px;
@@ -375,11 +376,12 @@ body {
   background: white;
   font-family: inherit;
   transition: border 0.3s ease;
-  box-sizing: border-box; /* Padding wird in die Breite eingerechnet */
+  box-sizing: border-box;
 }
 
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
   outline: none;
   border-color: #b38b59;
 }
@@ -396,13 +398,15 @@ body {
 }
 
 .contact-form input.invalid,
-.contact-form textarea.invalid {
+.contact-form textarea.invalid,
+.contact-form select.invalid{
   border: 2px solid #b00020;
   background: #fff5f5;
 }
 
 .contact-form input.valid,
-.contact-form textarea.valid {
+.contact-form textarea.valid,
+.contact-form select.invalid{
   border: 2px solid #3c8c5a;
 }
 
