@@ -1,6 +1,5 @@
-// =========================
 // CONTACT FORM VALIDATION
-// =========================
+
 const form = document.querySelector(".contact-form");
 
 if (form) {
@@ -9,15 +8,20 @@ if (form) {
 
     let valid = true;
 
-    document.querySelectorAll(".error").forEach(el => el.innerText = "");
-
-    document.querySelectorAll(".contact-form input, .contact-form textarea").forEach(el => {
-      el.classList.remove("invalid", "valid");
+    document.querySelectorAll(".error").forEach(el => {
+      el.innerText = "";
     });
+
+    document
+      .querySelectorAll(".contact-form input, .contact-form textarea, .contact-form select")
+      .forEach(el => {
+        el.classList.remove("invalid", "valid");
+      });
 
     const firstname = document.getElementById("firstname");
     const lastname = document.getElementById("lastname");
     const email = document.getElementById("email");
+    const project = document.getElementById("project");
     const message = document.getElementById("message");
 
     const firstnameValue = firstname.value.trim();
@@ -85,10 +89,18 @@ if (form) {
       email.classList.add("valid");
     }
 
-    if (projectValue === "") {
-      docuemtn.getElementById("errMessage").innerText =
-        "Bitte wähle ein Projekt aus.";
-      message.class
+    if (project) {
+      const projectValue = project.value.trim();
+
+      if (projectValue === "") {
+        document.getElementById("errProject").innerText =
+          "Bitte wähle ein Nachhaltigkeitsprojekt aus.";
+        project.classList.add("invalid");
+        valid = false;
+      } else {
+        project.classList.add("valid");
+      }
+    }
 
     if (messageValue === "") {
       document.getElementById("errMessage").innerText =
@@ -105,17 +117,22 @@ if (form) {
     }
 
     if (valid) {
-      form.submit();
+      alert("Das Formular wurde verschickt.");
+      form.reset();
+
+      document
+        .querySelectorAll(".contact-form input, .contact-form textarea, .contact-form select")
+        .forEach(el => {
+          el.classList.remove("invalid", "valid");
+        });
     }
   });
 }
-```
 
 // =========================
 // HAMBURGER MENU
 // =========================
 
-```js
 const hamburger = document.getElementById("hamburger");
 const nav = document.getElementById("nav");
 
@@ -124,13 +141,11 @@ if (hamburger && nav) {
     nav.classList.toggle("active");
   });
 }
-```
 
 // =========================
 // ACTION PAGE GAME (DINO)
 // =========================
 
-```js
 document.addEventListener("DOMContentLoaded", () => {
   const gameArea = document.getElementById("gameArea");
   const startBtn = document.getElementById("startGame");
@@ -154,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
   startBtn.addEventListener("click", startGame);
   gameArea.addEventListener("click", jump);
 
-  document.addEventListener("keydown", (e) => {
+  document.addEventListener("keydown", e => {
     if (e.code === "Space") {
       e.preventDefault();
       jump(e);
