@@ -1,7 +1,4 @@
-// =========================
 // CONTACT FORM VALIDATION
-// =========================
-
 const form = document.querySelector(".contact-form");
 
 if (form) {
@@ -12,23 +9,28 @@ if (form) {
 
     document.querySelectorAll(".error").forEach(el => el.innerText = "");
 
-    document.querySelectorAll(".contact-form input, .contact-form textarea").forEach(el => {
-      el.classList.remove("invalid", "valid");
-    });
+    document
+      .querySelectorAll(".contact-form input, .contact-form textarea, .contact-form select")
+      .forEach(el => {
+        el.classList.remove("invalid", "valid");
+      });
 
     const firstname = document.getElementById("firstname");
     const lastname = document.getElementById("lastname");
     const email = document.getElementById("email");
+    const project = document.getElementById("project");
     const message = document.getElementById("message");
 
     const firstnameValue = firstname.value.trim();
     const lastnameValue = lastname.value.trim();
     const emailValue = email.value.trim();
+    const projectValue = project.value.trim();
     const messageValue = message.value.trim();
 
     const nameRegex = /^[A-Za-zÀ-ÿ\s-]+$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    // Vorname
     if (firstnameValue === "") {
       document.getElementById("errFirstname").innerText =
         "Vorname ist ein Pflichtfeld.";
@@ -48,6 +50,7 @@ if (form) {
       firstname.classList.add("valid");
     }
 
+    // Nachname
     if (lastnameValue === "") {
       document.getElementById("errLastname").innerText =
         "Nachname ist ein Pflichtfeld.";
@@ -67,6 +70,7 @@ if (form) {
       lastname.classList.add("valid");
     }
 
+    // E-Mail
     if (emailValue === "") {
       document.getElementById("errEmail").innerText =
         "Email Adresse ist ein Pflichtfeld.";
@@ -86,6 +90,17 @@ if (form) {
       email.classList.add("valid");
     }
 
+    // Nachhaltigkeitsprojekt
+    if (projectValue === "") {
+      document.getElementById("errProject").innerText =
+        "Bitte wähle ein Nachhaltigkeitsprojekt aus.";
+      project.classList.add("invalid");
+      valid = false;
+    } else {
+      project.classList.add("valid");
+    }
+
+    // Nachricht
     if (messageValue === "") {
       document.getElementById("errMessage").innerText =
         "Bitte gib eine Nachricht ein.";
@@ -106,10 +121,7 @@ if (form) {
   });
 }
 
-// =========================
 // HAMBURGER MENU
-// =========================
-
 const hamburger = document.getElementById("hamburger");
 const nav = document.getElementById("nav");
 
@@ -119,9 +131,7 @@ if (hamburger && nav) {
   });
 }
 
-// =========================
-// ACTION PAGE GAME (DINO)
-// =========================
+// ACTION PAGE GAME (DINO-GAME)
 
 document.addEventListener("DOMContentLoaded", () => {
   const gameArea = document.getElementById("gameArea");
@@ -145,12 +155,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   startBtn.addEventListener("click", startGame);
   gameArea.addEventListener("click", jump);
-document.addEventListener("keydown", (e) => {
-  if (e.code === "Space") {
-    e.preventDefault();
-    jump(e);
-  }
-});
+
+  document.addEventListener("keydown", (e) => {
+    if (e.code === "Space") {
+      e.preventDefault();
+      jump(e);
+    }
+  });
 
   function startGame() {
     if (gameRunning) return;
@@ -219,9 +230,9 @@ document.addEventListener("keydown", (e) => {
       x -= speed;
       obs.style.left = x + "px";
 
-if (x < 120 && x > 50 && dinoY > -60) {
-  endGame();
-}
+      if (x < 120 && x > 50 && dinoY > -60) {
+        endGame();
+      }
 
       if (x < -50) {
         obs.remove();
@@ -252,34 +263,32 @@ if (x < 120 && x > 50 && dinoY > -60) {
   }
 
   function endGame() {
-const treeCount = document.getElementById("treeCount");
-const coralCount = document.getElementById("coralCount");
-const totalImpact = document.getElementById("totalImpact");
+    const treeCount = document.getElementById("treeCount");
+    const coralCount = document.getElementById("coralCount");
+    const totalImpact = document.getElementById("totalImpact");
 
-if (treeCount && coralCount && totalImpact) {
-  const trees = Math.floor(score / 3);
-  const corals = Math.floor(score / 5);
+    if (treeCount && coralCount && totalImpact) {
+      const trees = Math.floor(score / 3);
+      const corals = Math.floor(score / 5);
 
-  treeCount.textContent = trees;
-  coralCount.textContent = corals;
-  totalImpact.textContent = trees + corals;
-}
-    
-  gameRunning = false;
+      treeCount.textContent = trees;
+      coralCount.textContent = corals;
+      totalImpact.textContent = trees + corals;
+    }
 
-  clearInterval(gameInterval);
-  clearInterval(spawnInterval);
+    gameRunning = false;
 
-  gameInterval = null;
-  spawnInterval = null;
+    clearInterval(gameInterval);
+    clearInterval(spawnInterval);
 
-  startBtn.textContent = "Restart";
+    gameInterval = null;
+    spawnInterval = null;
 
- 
+    startBtn.textContent = "Restart";
 
-  setTimeout(() => {
-    alert("Game Over 🌍 Score: " + score);
-  }, 100);
-
-}
+    setTimeout(() => {
+      alert("Game Over 🌍 Score: " + score);
+    }, 100);
+  }
 });
+```
