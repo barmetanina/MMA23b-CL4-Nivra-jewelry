@@ -1,14 +1,15 @@
+```php
 <?php
 
-// Datenbank-Zugangsdaten
+// Datenbank-Zugangsdaten anpassen
 $host = "localhost";
-$dbname = "DEINE_DATENBANK";
-$username = "DEIN_BENUTZERNAME";
-$password = "DEIN_PASSWORT";
+$dbname = "nivra";
+$username = "root";
+$password = "";
 
 try {
 
-    // Verbindung zur Datenbank
+    // Verbindung zur Datenbank herstellen
     $pdo = new PDO(
         "mysql:host=$host;dbname=$dbname;charset=utf8",
         $username,
@@ -17,11 +18,33 @@ try {
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Formulardaten holen
-    $firstname = trim($_POST["firstname"]);
-    $lastname = trim($_POST["lastname"]);
-    $email = trim($_POST["email"]);
-    $message = trim($_POST["message"]);
+    // Formulardaten auslesen
+    $firstname = trim($_POST["firstname"] ?? "");
+    $lastname = trim($_POST["lastname"] ?? "");
+    $email = trim($_POST["email"] ?? "");
+    $message = trim($_POST["message"] ?? "");
+
+    // Validierung
+
+    // Vorname Pflichtfeld
+    if (empty($firstname)) {
+        die("Bitte gib deinen Vornamen ein.");
+    }
+
+    // Nachname Pflichtfeld
+    if (empty($lastname)) {
+        die("Bitte gib deinen Nachnamen ein.");
+    }
+
+    // E-Mail validieren
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("Bitte gib eine gültige E-Mail-Adresse ein.");
+    }
+
+    // Nachricht prüfen
+    if (strlen($message) > 200) {
+        die("Die Nachricht darf maximal 200 Zeichen lang sein.");
+    }
 
     // Daten speichern
     $sql = "INSERT INTO contact_messages
@@ -38,15 +61,15 @@ try {
         ':message' => $message
     ]);
 
-    // Weiterleitung auf Danke-Seite
+    // Weiterleitung
     header("Location: thankyou.html");
     exit();
 
 } catch (PDOException $e) {
 
-    echo "Database Error: " . $e->getMessage();
+    die("Datenbankfehler: " . $e->getMessage());
 
 }
+
 ?>
-
-
+```
