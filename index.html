@@ -114,7 +114,7 @@
     <section class="contact">
       <h2>Schreib uns!</h2>
       <p>Wir würden uns freuen, von Ihnen zu hören.</p>
-<form class="contact-form" action="contact.php" method="POST" novalidate>
+<form class="contact-form" novalidate>
   <label for="firstname">Vorname *</label>
   <input id="firstname" name="firstname" type="text" placeholder="Dein Vorname" required />
   <small id="errFirstname" class="error"></small>
@@ -128,12 +128,17 @@
   <small id="errEmail" class="error"></small>
 
   <label for="message">Nachricht *</label>
-  <textarea id="message" name="message" placeholder="Schreibe hier deine Nachricht..." maxlength="200" required></textarea>
+  <textarea
+    id="message"
+    name="message"
+    placeholder="Schreibe hier deine Nachricht..."
+    maxlength="200"
+    required
+  ></textarea>
   <small id="errMessage" class="error"></small>
 
   <button type="submit" class="btn-dark">Absenden</button>
-</form>
-      
+</form>  
     </section>
 
 
