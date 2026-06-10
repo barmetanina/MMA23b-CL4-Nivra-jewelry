@@ -275,6 +275,13 @@ body {
   border-radius: 14px;
 }
 
+.product-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 
 /* STORY SECTION Bild/Text-Bereich auf der Startseite */
 
