@@ -117,15 +117,8 @@ if (form) {
     }
 
     if (valid) {
-      alert("Das Formular wurde verschickt.");
-      form.reset();
-
-      document
-        .querySelectorAll(".contact-form input, .contact-form textarea, .contact-form select")
-        .forEach(el => {
-          el.classList.remove("invalid", "valid");
-        });
-    }
+	  form.submit();
+	}
   });
 }
 
@@ -304,3 +297,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100);
   }
 });
+
+// =========================
+// SHOP: Filter
+// =========================
+function filterProducts(category) {
+  const products = document.querySelectorAll('.product-card');
+
+  products.forEach(product => {
+    if (category === 'all') {
+      product.style.display = 'block';
+    } else {
+      if (product.dataset.category === category) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    }
+  });
+}
