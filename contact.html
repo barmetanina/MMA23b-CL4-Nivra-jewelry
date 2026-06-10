@@ -58,39 +58,40 @@
    <section class="contact">
       <h2>Schreibe uns!</h2>
       <p>Wir würden uns freuen, von Ihnen zu hören.</p>
-<form class="contact-form" novalidate>
-  <label for="firstname">Vorname *</label>
-  <input id="firstname" name="firstname" type="text" placeholder="Dein Vorname" required />
-  <small id="errFirstname" class="error"></small>
+	   
+		<form class="contact-form" action="save_contact.php" method="POST">
+		  <label for="firstname">Vorname *</label>
+		  <input id="firstname" name="firstname" type="text" placeholder="Dein Vorname" required />
+		  <small id="errFirstname" class="error"></small>
 
-  <label for="lastname">Nachname *</label>
-  <input id="lastname" name="lastname" type="text" placeholder="Dein Nachname" required />
-  <small id="errLastname" class="error"></small>
+		  <label for="lastname">Nachname *</label>
+		  <input id="lastname" name="lastname" type="text" placeholder="Dein Nachname" required />
+		  <small id="errLastname" class="error"></small>
 
-  <label for="email">E-Mail *</label>
-  <input id="email" name="email" type="email" placeholder="Deine E-Mail-Adresse" required />
-  <small id="errEmail" class="error"></small>
+		  <label for="email">E-Mail *</label>
+		  <input id="email" name="email" type="email" placeholder="Deine E-Mail-Adresse" required />
+		  <small id="errEmail" class="error"></small>
 
-  <label for="project">Nachhaltigkeitsprojekt *</label>
-  <select id="project" name="project" required>
-    <option value="">Bitte auswählen</option>
-    <option value="baum">Baum pflanzen</option>
-    <option value="koralle">Koralle züchten</option>
-  </select>
-  <small id="errProject" class="error"></small>
+		  <label for="project">Nachhaltigkeitsprojekt *</label>
+		  <select id="project" name="project" required>
+			<option value="">Bitte auswählen</option>
+			<option value="baum">Baum pflanzen</option>
+			<option value="koralle">Koralle züchten</option>
+		  </select>
+		  <small id="errProject" class="error"></small>
 
-  <label for="message">Nachricht *</label>
-  <textarea
-    id="message"
-    name="message"
-    placeholder="Schreibe hier deine Nachricht..."
-    maxlength="200"
-    required
-  ></textarea>
-  <small id="errMessage" class="error"></small>
+		  <label for="message">Nachricht *</label>
+		  <textarea
+			id="message"
+			name="message"
+			placeholder="Schreibe hier deine Nachricht..."
+			maxlength="200"
+			required
+		  ></textarea>
+		  <small id="errMessage" class="error"></small>
 
-  <button type="submit" class="btn-dark">Absenden</button>
-</form>
+		  <button type="submit" class="btn-dark">Absenden</button>
+		</form>
     </section>
 
     <!-- FAQ -->
@@ -132,7 +133,7 @@
 
   <div class="footer-col">
     <h4>Kontakt & Soziale Netzwerke</h4>
-    <p>info@smartbin.ch</p>
+    <p>info@nivra.ch</p>
     <p>Schweiz</p>
   </div>
 
