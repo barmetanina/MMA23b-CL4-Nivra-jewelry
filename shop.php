@@ -41,7 +41,7 @@ $result = $conn->query($sql);
   </button>
 
   <nav class="nav" id="nav">
-    <a href="index.html">Home</a>
+    <a href="index.php">Home</a>
     <a href="shop.html">Shop</a>
     <a href="action.html">Action</a>
     <a href="contact.html">Contact</a>
