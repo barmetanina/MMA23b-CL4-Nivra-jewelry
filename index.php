@@ -1,3 +1,22 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+$host = "localhost";
+$dbname = "webshop-nivra";
+$user = "maria-schibli";
+$pass = "8z_L5Wemwzz8%Ecs";
+
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+if ($conn->connect_error) {
+    die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+}
+
+$sql = "SELECT * FROM table_product LIMIT 4";
+$result = $conn->query($sql);
+?>
+
 <!doctype html>
 <html lang="de">
   <head>
@@ -64,34 +83,28 @@
       </div>
 
       <div class="product-grid">
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Olivenzweig Ring</h4>
-          <p>CHF 89,00</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
+		<?php
+		if ($result && $result->num_rows > 0) {
+		  while($row = $result->fetch_assoc()) {
+		?>
 
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Wald Armband</h4>
-          <p>CHF 124,00</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
+		  <div class="product-card">
+			<img src="<?= $row['image']; ?>" alt="<?= $row['product_name']; ?>" class="product-img">
 
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Erde Hoops</h4>
-          <p>CHF 69,00</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
+			<h4><?= $row['product_name']; ?></h4>
 
-        <div class="product-card">
-          <div class="img-placeholder"></div>
-          <h4>Stein Armband</h4>
-          <p>CHF 99,00</p>
-          <button class="btn-dark">In den Warenkorb</button>
-        </div>
-      </div>
+			<p class="price">CHF <?= $row['product_price']; ?></p>
+
+			<button class="btn-dark">In den Warenkorb</button>
+		  </div>
+
+		<?php
+		  }
+		} else {
+		  echo "<p>Keine Produkte gefunden.</p>";
+		}
+		?>
+		</div>
     </section>
 
     <!-- STORY -->
