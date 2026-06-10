@@ -56,11 +56,11 @@ $result = $conn->query($sql);
 
     <!-- FILTER BAR -->
     <section class="shop-filter">
-      <button class="filter-btn">Alles</button>
-      <button class="filter-btn">Ringe</button>
-      <button class="filter-btn">Halsketten</button>
-      <button class="filter-btn">Armketten</button>
-      <button class="filter-btn">Ohrringe</button>
+      <button class="filter-btn" onclick="filterProducts('all')">Alles</button>
+	  <button class="filter-btn" onclick="filterProducts('1')">Halsketten</button>
+	  <button class="filter-btn" onclick="filterProducts('2')">Ringe</button>
+	  <button class="filter-btn" onclick="filterProducts('3')">Armbänder</button>
+	  <button class="filter-btn" onclick="filterProducts('4')">Ohrringe</button>
     </section>
 
     <!-- PRODUCTS GRID -->
@@ -73,8 +73,8 @@ $result = $conn->query($sql);
 		  while($row = $result->fetch_assoc()) {
 		?>
 
-		  <div class="product-card">
-			<div class="img-placeholder"></div>
+		  <div class="product-card" data-category="<?= $row['categories_id']; ?>">
+			<img src="<?= $row['image']; ?>" alt="<?= $row['product_name']; ?>" class="product-img">
 
 			<h4><?= $row['product_name']; ?></h4>
 
@@ -140,7 +140,7 @@ $result = $conn->query($sql);
 
   <div class="footer-col">
     <h4>Kontakt & Soziale Netzwerke</h4>
-    <p>info@smartbin.ch</p>
+    <p>info@nivra.ch</p>
     <p>Schweiz</p>
   </div>
 
