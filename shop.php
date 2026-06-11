@@ -1,26 +1,38 @@
 <?php
+// PHP-Bereich: Datenbankverbindung herstellen und alle Shop-Produkte laden
+// Fehleranzeige für die Entwicklung aktivieren
 ini_set('display_errors', 1);
+// Alle PHP-Fehler anzeigen
 error_reporting(E_ALL);
 
+// Zugangsdaten zur MySQL-Datenbank
 $host = "localhost";
 $dbname = "webshop-nivra";
 $user = "maria-schibli";
 $pass = "8z_L5Wemwzz8%Ecs";
 
+// Verbindung zur Datenbank erstellen
 $conn = new mysqli($host, $user, $pass, $dbname);
 
+// Prüfen, ob die Verbindung fehlgeschlagen ist
 if ($conn->connect_error) {
     die("Verbindung fehlgeschlagen: " . $conn->connect_error);
 }
 
+// SQL-Abfrage: Alle Produkte aus der Produkttabelle auswählen
 $sql = "SELECT * FROM table_product";
+// SQL-Abfrage ausführen und Ergebnis speichern
 $result = $conn->query($sql);
 ?>
 
 <!doctype html>
+<!-- HTML-Dokument für die Shop-Seite -->
 <html lang="de">
   <head>
+    <!-- Kopfbereich mit Meta-Daten, Seitentitel, CSS und Google Fonts -->
+    <!-- Zeichencodierung für Sonderzeichen -->
     <meta charset="UTF-8" />
+    <!-- Responsive Darstellung auf verschiedenen Bildschirmgrössen -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nivra – Shop</title>
     <link rel="stylesheet" href="style.css" />
@@ -32,7 +44,7 @@ $result = $conn->query($sql);
 
   <body>
 
-    <!-- HEADER -->
+    <!-- HEADER: Logo, mobiles Menü und Navigation -->
     <header class="header">
   <div class="logo">Nivra</div>
 
@@ -48,13 +60,13 @@ $result = $conn->query($sql);
   </nav>
 </header>
 
-    <!-- HERO SHOP -->
+    <!-- HERO SHOP: Titelbereich der Shop-Seite -->
     <section class="shop-hero">
       <h1>Our Jewelry Collection</h1>
       <p>Zeitlose Schmuckstücke aus recycelten Materialien</p>
     </section>
 
-    <!-- FILTER BAR -->
+    <!-- FILTER BAR: Buttons zum Filtern nach Produktkategorien -->
     <section class="shop-filter">
       <button class="filter-btn" onclick="filterProducts('all')">Alles</button>
 	  <button class="filter-btn" onclick="filterProducts('1')">Halsketten</button>
@@ -63,19 +75,24 @@ $result = $conn->query($sql);
 	  <button class="filter-btn" onclick="filterProducts('4')">Ohrringe</button>
     </section>
 
-    <!-- PRODUCTS GRID -->
+    <!-- PRODUCTS GRID: Alle Produkte aus der Datenbank werden hier angezeigt -->
     <section class="products">
 
      <div class="product-grid">
 
 		<?php
+		// Prüfen, ob Produkte vorhanden sind
 		if ($result->num_rows > 0) {
+		  // Jedes Produkt einzeln aus der Datenbank auslesen
 		  while($row = $result->fetch_assoc()) {
 		?>
 
+		  <!-- Produktkarte mit Kategorie-ID für den JavaScript-Filter -->
 		  <div class="product-card" data-category="<?= $row['categories_id']; ?>">
+			<!-- Produktbild -->
 			<img src="<?= $row['image']; ?>" alt="<?= $row['product_name']; ?>" class="product-img">
 
+			<!-- Produktname -->
 			<h4><?= $row['product_name']; ?></h4>
 
 			<p class="price">
@@ -103,7 +120,7 @@ $result = $conn->query($sql);
 </div>
     </section>
 
-    <!-- INFO SECTION -->
+    <!-- INFO SECTION: Zusatzinformationen zu Nachhaltigkeit, Wirkung und Herstellung -->
     <section class="shop-info">
       <div class="info-box">
         <h3>Nachhaltige Materialien</h3>
@@ -121,7 +138,7 @@ $result = $conn->query($sql);
       </div>
     </section>
 
-<!-- FOOTER -->
+<!-- FOOTER: Fussbereich mit Links, Kontakt, Team und Disclaimer -->
 <footer class="footer">
 
   <div class="footer-col">
@@ -156,6 +173,7 @@ $result = $conn->query($sql);
   </div>
     <div class="footer-bottom">© 2025 Nivra. Alle Rechte vorbehalten.</div>
 </footer>
+    <!-- JavaScript-Datei für Navigation und Produktfilter laden -->
     <script src="script.js"></script>
   </body>
 </html>
