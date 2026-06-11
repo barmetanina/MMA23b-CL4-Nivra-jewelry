@@ -55,13 +55,20 @@
       </div>
     </section>
 
+
+<!-- KONTAKTFORMULAR -->
+<!-- Benutzer können hier eine Nachricht absenden -->
    <section class="contact">
       <h2>Schreibe uns!</h2>
       <p>Wir würden uns freuen, von Ihnen zu hören.</p>
-	   
+
+	<!-- Formular wird per POST an save_contact.php gesendet -->
 		<form class="contact-form" action="save_contact.php" method="POST">
+			  
+	<!-- Vorname -->
 		  <label for="firstname">Vorname *</label>
 		  <input id="firstname" name="firstname" type="text" placeholder="Dein Vorname" required />
+	<!-- Fehlermeldung wird per JavaScript eingefügt -->
 		  <small id="errFirstname" class="error"></small>
 
 		  <label for="lastname">Nachname *</label>
@@ -89,7 +96,8 @@
 			required
 		  ></textarea>
 		  <small id="errMessage" class="error"></small>
-
+    
+			<!-- Formular absenden -->
 		  <button type="submit" class="btn-dark">Absenden</button>
 		</form>
     </section>
