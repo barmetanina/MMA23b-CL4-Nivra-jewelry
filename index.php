@@ -1,18 +1,23 @@
 <?php
+// Fehlerausgabe aktivieren (nur für Entwicklung)
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+// Datenbankverbindung herstellen
 $host = "localhost";
 $dbname = "webshop-nivra";
 $user = "maria-schibli";
 $pass = "8z_L5Wemwzz8%Ecs";
 
+// Verbindung zur MySQL-Datenbank
 $conn = new mysqli($host, $user, $pass, $dbname);
 
+// Fehler prüfen
 if ($conn->connect_error) {
     die("Verbindung fehlgeschlagen: " . $conn->connect_error);
 }
 
+// Produkte aus der Datenbank laden (max. 4 Produkte)
 $sql = "SELECT * FROM table_product LIMIT 4";
 $result = $conn->query($sql);
 ?>
@@ -21,6 +26,8 @@ $result = $conn->query($sql);
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
+
+	<!-- Responsive Darstellung auf Mobilgeräten --> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nivra – Sustainable Jewelry</title>
     <link rel="stylesheet" href="style.css" />
@@ -29,9 +36,11 @@ $result = $conn->query($sql);
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   </head>
   <body>
+	  <!-- Kopfbereich der Website -->
     <header class="header">
   <div class="logo">Nivra</div>
 
+	  <!-- Hamburger-Menü für Mobile -->	
   <button class="hamburger" id="hamburger">
     ☰
   </button>
@@ -84,13 +93,16 @@ $result = $conn->query($sql);
 
       <div class="product-grid">
 		<?php
+		// Prüfen ob Produkte vorhanden sind
 		if ($result && $result->num_rows > 0) {
+		 // Jedes Produkt ausgeben
 		  while($row = $result->fetch_assoc()) {
 		?>
 
 		  <div class="product-card">
+			<!-- Produktbild -->
 			<img src="<?= $row['image']; ?>" alt="<?= $row['product_name']; ?>" class="product-img">
-
+ 		 <!-- Produktname -->
 			<h4><?= $row['product_name']; ?></h4>
 
 			<p class="price">CHF <?= $row['product_price']; ?></p>
