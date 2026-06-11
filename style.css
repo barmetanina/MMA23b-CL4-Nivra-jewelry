@@ -1,3 +1,4 @@
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
@@ -7,7 +8,7 @@ body {
 }
 
 
-/* HEADER & NAVIGATION, Logo, Menü und mobiler Hamburger */
+/* HEADER & NAVIGATION, Logo, MenÃ¼ und mobiler Hamburger */
 
 .header {
   display: flex;
@@ -51,7 +52,6 @@ body {
 
 
 /* HERO STARTSEITE, Grosser Startbereich auf index.php */
-
 .hero {
   height: 420px;
   background-image:
@@ -90,8 +90,7 @@ body {
 }
 
 
-/* KLEINER HERO, für Unterseiten wie Contact und Action
- */
+/* KLEINER HERO, Unterseiten wie Contact und Action*/
 
 .hero-small {
   height: 260px;
@@ -200,7 +199,7 @@ body {
 
 .products {
   padding: 70px 24px;
-  padding-top: 40px; /* Ursprüngliche Shop-Erweiterung bleibt erhalten */
+  padding-top: 40px; /* UrsprÃ¼ngliche Shop-Erweiterung bleibt erhalten */
 }
 
 .section-header {
@@ -339,7 +338,7 @@ body {
 
 .contact {
   padding: 70px 24px;
-  padding-top: 40px; /* Ursprünglicher Contact-Feinschliff bleibt erhalten */
+  padding-top: 40px; /* UrsprÃ¼nglicher Contact-Feinschliff bleibt erhalten */
   text-align: center;
   background: #f8f6f2;
 }
@@ -451,8 +450,7 @@ body {
 }
 
 
-/* FAQ - Fragen und Antworten auf der Kontaktseite
-*/
+/* FAQ - Fragen und Antworten auf der Kontaktseite */
 
 .faq {
   padding: 70px 24px;
@@ -520,7 +518,7 @@ body {
 .shop-filter {
   padding: 20px 24px 40px;
   display: flex;
-  flex-wrap: wrap; /* Buttons springen auf die nächste Zeile, wenn wenig Platz ist */
+  flex-wrap: wrap; /* Buttons springen auf die nächsten Zeile, wenn wenig Platz ist */
   justify-content: center;
   gap: 12px;
 }
