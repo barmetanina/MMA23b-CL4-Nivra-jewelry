@@ -27,20 +27,20 @@ $result = $conn->query($sql);
   <head>
     <meta charset="UTF-8" />
 
-	<!-- Responsive Darstellung auf Mobilgeräten --> 
+<!-- Responsive Darstellung auf Mobilgeräten --> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nivra – Sustainable Jewelry</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   </head>
-  <body>
-	  <!-- Kopfbereich der Website -->
+  	<body>
+<!-- Kopfbereich der Website -->
     <header class="header">
-  <div class="logo">Nivra</div>
+ 		 <div class="logo">Nivra</div>
 
-	  <!-- Hamburger-Menü für Mobile -->	
+<!-- Hamburger-Menü für Mobile -->	
   <button class="hamburger" id="hamburger">
     ☰
   </button>
@@ -53,15 +53,15 @@ $result = $conn->query($sql);
   </nav>
 </header>
 
-    <!-- HERO -->
+<!-- HERO -->
     <section class="hero">
       <div class="hero-content">
         <h1>Jewelry that grows.</h1>
         <p>Nachhaltiger Schmuck aus recycelten Materialien</p>
-<a href="shop.php" class="btn-primary">Jetzt kaufen</a></div>
+	<a href="shop.php" class="btn-primary">Jetzt kaufen</a></div>
     </section>
 
-    <!-- FEATURES -->
+<!-- FEATURES -->
     <section class="features">
       <div class="feature-card">
         <h3>Recycelte Materialien</h3>
@@ -84,7 +84,7 @@ $result = $conn->query($sql);
       </div>
     </section>
 
-    <!-- PRODUCTS -->
+<!-- PRODUCTS -->
     <section class="products">
       <div class="section-header">
         <h2>Empfohlene Produkte</h2>
@@ -93,16 +93,16 @@ $result = $conn->query($sql);
 
       <div class="product-grid">
 		<?php
-		// Prüfen ob Produkte vorhanden sind
+	// Prüfen ob Produkte vorhanden sind
 		if ($result && $result->num_rows > 0) {
-		 // Jedes Produkt ausgeben
+	// Jedes Produkt ausgeben
 		  while($row = $result->fetch_assoc()) {
 		?>
 
 		  <div class="product-card">
-			<!-- Produktbild -->
+	<!-- Produktbild -->
 			<img src="<?= $row['image']; ?>" alt="<?= $row['product_name']; ?>" class="product-img">
- 		 <!-- Produktname -->
+ 	<!-- Produktname -->
 			<h4><?= $row['product_name']; ?></h4>
 
 			<p class="price">CHF <?= $row['product_price']; ?></p>
