@@ -726,43 +726,50 @@ body {
 }
 
 /* Dino wird per JavaScript erstellt */
+/* DINO-SPIELFIGUR */
 .dino {
-  position: absolute;
-  bottom: 85px;
-  left: 60px;
-  font-size: 55px;
-  z-index: 5;
-  transition: transform 0.08s linear;
+  position: absolute; /* Freie Positionierung innerhalb des Spielbereichs */
+  bottom: 85px;       /* 85px Abstand vom unteren Rand */
+  left: 60px;         /* 60px Abstand vom linken Rand */
+  font-size: 55px;    /* Größe des Dino-Emojis/Textes */
+  z-index: 5;         /* Liegt vor Elementen mit kleinerem z-index */
+  transition: transform 0.08s linear; /* Weiche Animation bei Änderungen von transform (z.B. beim Springen) */
   filter:
-    drop-shadow(0 8px 10px rgba(0,0,0,0.25));
+    drop-shadow(0 8px 10px rgba(0,0,0,0.25));   /* Schatten für mehr Tiefenwirkung */
 }
 
-/* Hindernisse werden per JavaScript erstellt */
+
+/* HINDERNISSE
+   Werden per JavaScript erzeugt */
 .obstacle {
-  position: absolute;
-  bottom: 85px;
-  font-size: 42px;
-  z-index: 5;
+  position: absolute; /* Freie Positionierung im Spielbereich */
+  bottom: 85px;       /* Gleiche Bodenhöhe wie der Dino */
+  font-size: 42px;    /* Größe des Hindernisses */
+  z-index: 5;         /* Gleiche Ebene wie der Dino */
   filter:
-    drop-shadow(0 6px 8px rgba(0,0,0,0.2));
+    drop-shadow(0 6px 8px rgba(0,0,0,0.2)); /* Leichter Schatten für einen 3D-Effekt */
 }
 
+
+/* INFO-BEREICH (z.B. Punkte, Highscore) */
 .game-info {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  justify-content: center;
-  align-items: center;
-  background: white;
-  padding: 30px;
-  border-radius: 24px;
-  box-shadow:
+  display: flex;   /* Flexbox aktivieren */
+ flex-direction: column;   /* Elemente untereinander anordnen */
+  gap: 18px; /* Abstand zwischen den Elementen */
+  justify-content: center;   /* Vertikale Zentrierung */
+  align-items: center;   /* Horizontale Zentrierung */
+  background: white;   /* Weißer Hintergrund */
+  padding: 30px;   /* Innenabstand */
+  border-radius: 24px;   /* Abgerundete Ecken */
+  box-shadow:   /* Weicher Schatten um die Box */
     0 15px 30px rgba(0,0,0,0.08);
 }
 
+
+/* ABSÄTZE INNERHALB DER INFO-BOX */
 .game-info p {
-  margin: 0;
-  color: #111;
+  margin: 0;   /* Standardabstand von <p>-Elementen entfernen */
+  color: #111;  
   font-weight: 500;
 }
 
