@@ -67,20 +67,20 @@
 			  
 	<!-- Vorname -->
 		  <label for="firstname">Vorname *</label>
-		  <input id="firstname" name="firstname" type="text" placeholder="Dein Vorname" required />
+		  <input id="firstname" name="firstname" type="text" placeholder="Dein Vorname" novalidate />
 	<!-- Fehlermeldung wird per JavaScript eingefügt -->
 		  <small id="errFirstname" class="error"></small>
 
 		  <label for="lastname">Nachname *</label>
-		  <input id="lastname" name="lastname" type="text" placeholder="Dein Nachname" required />
+		  <input id="lastname" name="lastname" type="text" placeholder="Dein Nachname" novalidate />
 		  <small id="errLastname" class="error"></small>
 
 		  <label for="email">E-Mail *</label>
-		  <input id="email" name="email" type="email" placeholder="Deine E-Mail-Adresse" required />
+		  <input id="email" name="email" type="email" placeholder="Deine E-Mail-Adresse" novalidate />
 		  <small id="errEmail" class="error"></small>
 
 		  <label for="project">Nachhaltigkeitsprojekt *</label>
-		  <select id="project" name="project" required>
+		  <select id="project" name="project" novalidate>
 			<option value="">Bitte auswählen</option>
 			<option value="baum">Baum pflanzen</option>
 			<option value="koralle">Koralle züchten</option>
@@ -93,7 +93,7 @@
 			name="message"
 			placeholder="Schreibe hier deine Nachricht..."
 			maxlength="200"
-			required
+			novalidate
 		  ></textarea>
 		  <small id="errMessage" class="error"></small>
     
